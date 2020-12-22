@@ -1,0 +1,71 @@
+﻿@model JahresUrlaub.Web.Benutzer
+
+@{
+    ViewBag.Title = "Login";
+}
+<style>
+    .all {
+        padding-left: 450px;
+        padding-top: 170px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    body, html {
+        height: 100%;
+    }
+
+    body, html {
+        /* The image used */
+        background-image: url("../../Images/krakenimages-376KN_ISplE-unsplash.jpg");
+        /* Full height */
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .allbutton {
+        padding-left: 50px;
+    }
+</style>
+<body>
+    <div class="all">
+        <img src="~/Images/login.png" width="70" height="50" />
+        <h2>Login</h2>
+
+
+        @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <div>
+                @Html.LabelFor(model => model.Username)
+                @Html.EditorFor(model => model.Username)
+            </div>
+            <p>@Html.ValidationMessageFor(model => model.Username)</p>
+
+            <div class="input-div two">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div>
+                    <label>Password</label>
+                    @Html.EditorFor(model => model.passwordUser)
+                </div>
+
+                <p>@Html.ValidationMessageFor(model => model.passwordUser)</p>
+            </div>
+            <div class="allbutton">
+                <input type="submit" id="button" class="btn" name="name" value="Login" />
+                <a href="@Url.Action("AddOrEdit", "Registieren")" class="btn btn-primary">Registieren</a>
+
+            </div>
+            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+        }
+    </div>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
