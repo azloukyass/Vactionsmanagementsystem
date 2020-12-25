@@ -18,8 +18,7 @@ namespace JahresUrlaub.Web
         public string Subject { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> Start { get; set; }
-        public Nullable<System.DateTime> EndDatum { get; set; }
         public string ThemeColor { get; set; }
-        public int Personalnummer { get; set; }
+        public Nullable<System.DateTime> End { get; set; }
     }
 }

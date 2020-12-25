@@ -5,7 +5,7 @@
     }
     body, html {
         /* The image used */
-        background-image: url('Images/estee-janssens-zni0zgb3bkQ-unsplash.jpg');
+        background-image: url('../../Images/estee-janssens-zni0zgb3bkQ-unsplash.jpg');
         /* Full height */
         /* Center and scale the image nicely */
         background-position: center;
@@ -13,7 +13,7 @@
         background-size: cover;
     }
 </style>
-<h2>Urlaub-Antrag</h2>
+<h2>Urlaub-Antrag-Bearbeiten</h2>
 <img src="~/Images/calendar-interface-symbol-tool.png" id="bild" width="50" height="50" />
 <div id="calender"></div>
 
@@ -98,6 +98,7 @@
         </div>
     </div>
 </div>
+<a href="@Url.Action("Index", "FirstPage")" class="btn btn-info">Zurück</a>
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />

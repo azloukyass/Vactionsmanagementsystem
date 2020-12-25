@@ -14,7 +14,6 @@
         #bild {
             margin-right: 100px;
             margin-top: 70px;
-            
         }
 
         .allbutton {
@@ -22,70 +21,88 @@
             margin-left: 20px;
             margin-top: 70px;
         }
+
         #username {
-            margin-top:-1px;
+            margin-top: -1px;
         }
+
         #bild1 {
             width: 500px;
             height: 400px;
             margin-left: 200px;
             margin-top: 40px;
         }
+
         #GruppElement {
-            margin-left:80px;
-            margin-top:50px;
+            margin-left: 80px;
+            margin-top: 50px;
         }
+
         .btn {
             margin-top: 10px;
-            margin-right:-10px;
+            margin-right: -10px;
         }
+
         #addbild1 {
-            margin-left:20px;;
+            margin-left: 20px;
+            ;
         }
+
         #GruppElement1 {
             margin-left: 500px;
             margin-top: -145px;
-            
         }
+
         #GruppElement2 {
             margin-left: 900px;
             margin-top: -145px;
         }
-        html , body {
-            
+
+        html, body {
+            height:100%;
         }
+
         body, html {
             /* The image used */
-            background-image: url("../../Images/pexels-rachel-claire-4577587.jpg");
+            background-image: url('../../Images/aaron-huber---WbZltaVww-unsplash.jpg');
             /* Full height */
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
         }
+        #out {
+            margin-left:1000px;
+        }
     </style>
-    <body>
-      
-            <img src="~/Images/bussiness-man.png" width="80" height="50" id="bild" />
-            <h3 id="username">@Model.Username </h3>
+    <script type="text/javascript">
+        function AlertMsg() {
+            var message = "Simple MessageBox";
+            var title = "Title";
+            window.prompt(message, title);  
+        }
         
-    
-            <span id="all">
-                <div id="GruppElement">
-                    <img src="~/Images/add.png" id="addbild1" width="100" height="100" />
-                    <br />
-                    <a href="@Url.Action("Index", "Urlaub")" class="btn btn-success">Urlaub-Beantragen</a>
-                </div>
-                <div id="GruppElement1">
-                    <img src="~/Images/paket.png" id="addbild1" width="100" height="100" />
-                    <br />
-                    <a href="@Url.Action("Edit", "Urlaub")" class="btn btn-success">Urlaub-Status</a>
-                </div>
-                <div id="GruppElement2">
-                    <img src="~/Images/paket.png" id="addbild1" width="100" height="100" />
-                    <br />
-                    <a href="@Url.Action("Edit", "Urlaub")" class="btn btn-success">Urlaub-Bearbeiten</a>
-                </div>
-            </span>
-</body>
+    </script>
+    <body>
+        <img src="~/Images/bussiness-man.png" width="80" height="50" id="bild" />
+        <h3 id="username">@Model.Username </h3>
+        <a id="out" href="@Url.Action( "Index", "Home")" class="btn btn-info">LogOut</a>
+        <span id="all">
+            <div id="GruppElement">
+                <img src="~/Images/add.png" id="addbild1" width="100" height="100" />
+                <br />
+                <a href="@Url.Action("Index", "Urlaub")" class="btn btn-success">Urlaub-Beantragen</a>
+            </div>
+            <div id="GruppElement1">
+                <img src="~/Images/folder.png" id="addbild1" width="100" height="100" />
+                <br />
+                <button id="dialog-Alert" onclick="AlertMsg()" class="btn btn-success">Urlaub-Status-überprüfen</button>
+            </div>
+            <div id="GruppElement2">
+                <img src="~/Images/paket.png" id="addbild1" width="100" height="100" />
+                <br />
+                <a href="@Url.Action("Edit", "Urlaub")" class="btn btn-success">Urlaub-Bearbeiten</a>
+            </div>
+        </span>
+    </body>
 </html>

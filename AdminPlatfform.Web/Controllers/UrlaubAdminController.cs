@@ -38,19 +38,15 @@ namespace AdminPlatfform.Web.Controllers
             return View();
         }
 
-       
 
-        /// <summary>GetEvents : Buscar informação do evento</summary>
-        public JsonResult GetEvents(Benutzer e, Events x)
+
+        
+        public JsonResult GetEvents()
         {
             using (AdminEntities dc = new AdminEntities())
             {
-                var test = dc.Events.Where(x1 => x1.Subject == e.Personalnummer).ToList();
-                if (e.Personalnummer == x.Subject)
-                {
-                    return new JsonResult { Data = test, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
-                else return null;
+                var events = dc.Events.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
         [HttpPost]
@@ -67,9 +63,9 @@ namespace AdminPlatfform.Web.Controllers
                     {
                         v.Subject = e.Subject;
                         v.Start = e.Start;
-                        v.EndDatum = e.EndDatum;
+                        v.End = e.End;
                         v.Description = e.Description;
-                        v.Personalnummer = e.Personalnummer;
+                      
                         v.ThemeColor = e.ThemeColor;
                     }
                 }

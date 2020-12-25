@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace UserReg.Controllers
 {
@@ -28,6 +29,11 @@ namespace UserReg.Controllers
                 else
                     return View("~/Views/FirstPage/Index.cshtml", userModel);
             }
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

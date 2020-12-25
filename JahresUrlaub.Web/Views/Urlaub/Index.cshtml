@@ -43,7 +43,7 @@
                 <form class="col-md-12 form-horizontal">
                     <input type="hidden" id="hdEventID" value="0" />
                     <div class="form-group">
-                        <label>Subject--Personalnummer</label>
+                        <label>Vorname und Personalnummer</label>
                         <input type="text" id="txtSubject" class="form-control" />
                     </div>
                     <div class="form-group">
@@ -55,12 +55,8 @@
                             </span>
                         </div>
                     </div>
+                
                     <div class="form-group">
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  Is Full Day event</label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="divEndDate" style="display:none">
                         <label>End</label>
                         <div class="input-group date" id="dtp2">
                             <input type="text" id="txtEnd" class="form-control" />
@@ -78,7 +74,7 @@
                         <select id="ddThemeColor" class="form-control">
                             <option value="">Default</option>
                           
-                            <option value="blue">Blue</option>
+                            <option value="InBearbeitung">Blue</option>
                             
                         </select>
                     </div>
@@ -89,7 +85,7 @@
         </div>
     </div>
 </div>
-
+<a href="@Url.Action("Index", "FirstPage")" class="btn btn-info">Zurück</a>
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
@@ -116,7 +112,7 @@
                                 start: moment(v.Start),
                                 end: v.End != null ? moment(v.End) : null,
                                 color: v.ThemeColor,
-                                allDay: v.IsFullDay
+                        
                             });
                         })
 
@@ -163,7 +159,7 @@
                             description: '',
                             start: start,
                             end: end,
-                            allDay: false,
+                           
                             color: ''
                         };
                         openAddEditForm();
@@ -175,10 +171,10 @@
                             EventID: event.eventID,
                             Subject: event.title,
                             Start: event.start.format('DD/MM/YYYY'),
-                            End: event.end != null ? event.end.format('DD/MM/YYYY') : null,
+                            End: event.end.format('DD/MM/YYYY'),
                             Description: event.description,
                             ThemeColor: event.color,
-                            IsFullDay: event.allDay
+                        
                         };
                         SaveEvent(data);
                     }
@@ -210,25 +206,17 @@
             })
 
             $('#dtp1,#dtp2').datetimepicker({
-                format: 'DD/MM/YYYY HH:mm A'
+                format: 'DD/MM/YYYY '
             });
 
-            $('#chkIsFullDay').change(function () {
-                if ($(this).is(':checked')) {
-                    $('#divEndDate').hide();
-                }
-                else {
-                    $('#divEndDate').show();
-                }
-            });
+            
 
             function openAddEditForm() {
                 if (selectedEvent != null) {
                     $('#hdEventID').val(selectedEvent.eventID);
                     $('#txtSubject').val(selectedEvent.title);
                     $('#txtStart').val(selectedEvent.start.format('DD/MM/YYYY'));
-                    $('#chkIsFullDay').prop("checked", selectedEvent.allDay || false);
-                    $('#chkIsFullDay').change();
+                    
                     $('#txtEnd').val(selectedEvent.end != null ? selectedEvent.end.format('DD/MM/YYYY') : '');
                     $('#txtDescription').val(selectedEvent.description);
                     $('#ddThemeColor').val(selectedEvent.color);
@@ -267,7 +255,7 @@
                     End: $('#chkIsFullDay').is(':checked') ? null : $('#txtEnd').val().trim(),
                     Description: $('#txtDescription').val(),
                     ThemeColor: $('#ddThemeColor').val(),
-                    IsFullDay: $('#chkIsFullDay').is(':checked')
+                    
                 }
                 SaveEvent(data);
                 // call function for submit data to the server

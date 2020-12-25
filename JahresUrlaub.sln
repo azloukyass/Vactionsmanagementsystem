@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JahresUrlaub.Domain", "JahresUrlaub.Domain\JahresUrlaub.Domain.csproj", "{4DC46AFE-61F9-4E5F-8114-FB075DD51C8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Urlaubsverwaltung.Domain", "JahresUrlaub.Domain\Urlaubsverwaltung.Domain.csproj", "{4DC46AFE-61F9-4E5F-8114-FB075DD51C8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urlaubsverwaltung.Web", "JahresUrlaub.Web\Urlaubsverwaltung.Web.csproj", "{319F054E-1381-4D74-987C-FF556E97FC7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPlatfform.Web", "AdminPlatfform.Web\AdminPlatfform.Web.csproj", "{6A38CA89-6832-49C2-B0F9-068021E908C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urlaubsverwaltung.Test", "Urlaubsverwaltung.Test\Urlaubsverwaltung.Test.csproj", "{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6A38CA89-6832-49C2-B0F9-068021E908C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A38CA89-6832-49C2-B0F9-068021E908C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A38CA89-6832-49C2-B0F9-068021E908C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,6 +33,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <img src="~/Images/logo.png" width="50" height="50" />
+               
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li>Frau/Herr - @User.Identity.Name</li>
+                           <li>@Html.ActionLink("Log Out", "Logout", "Login")</li>
+                        }     
                 </ul>
             </div>
         </div>

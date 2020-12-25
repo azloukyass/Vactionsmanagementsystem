@@ -45,18 +45,48 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.0.4\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.0.3\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.4.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -149,9 +179,12 @@
     <Compile Include="Benutzer.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
+    <Compile Include="Common\Global.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminEngController.cs" />
     <Compile Include="Controllers\FirstLayoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\UrlaubAdminController.cs" />
     <Compile Include="Events.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
@@ -159,7 +192,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IService\INotiService.cs" />
+    <Compile Include="Notification.cs">
+      <DependentUpon>NotificationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotificationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotificationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotificationModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\NotiService.cs" />
     <Compile Include="Urlaub.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
@@ -178,11 +231,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Notification\ikr.notification.css" />
+    <Content Include="Content\Notification\ikr.notificationPlugin.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\add.png" />
+    <Content Include="images\ausloggen %282%29.png" />
     <Content Include="images\benutzer-mit-krawatte-und-brille.png" />
     <Content Include="images\benutzer.png" />
     <Content Include="images\bussiness-man.png" />
@@ -194,6 +250,7 @@
     <Content Include="images\krakenimages-376KN_ISplE-unsplash.jpg" />
     <Content Include="images\login.png" />
     <Content Include="images\logo.png" />
+    <Content Include="images\mia-baker-CuoMduHwRZY-unsplash.jpg" />
     <Content Include="images\observation.png" />
     <Content Include="images\paket.png" />
     <Content Include="images\patrick-amoy-OSiLnlAcwYg-unsplash.jpg" />
@@ -203,6 +260,16 @@
     <Content Include="images\registrieren.png" />
     <Content Include="images\schedule.png" />
     <Content Include="images\unauthorized-person.png" />
+    <Content Include="NotificationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NotificationModel.edmx</DependentUpon>
+      <LastGenOutput>NotificationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NotificationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NotificationModel.edmx</DependentUpon>
+      <LastGenOutput>NotificationModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="AllModuls.edmx">
@@ -211,6 +278,13 @@
     </EntityDeploy>
     <Content Include="AllModuls.edmx.diagram">
       <DependentUpon>AllModuls.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="NotificationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NotificationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="NotificationModel.edmx.diagram">
+      <DependentUpon>NotificationModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -238,11 +312,13 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\FirstLayout\Index.cshtml" />
     <Content Include="Views\UrlaubAdmin\Index.cshtml" />
-    <Content Include="Views\UrlaubAdmin\AntwortAntragView.cshtml" />
+    <Content Include="Views\UrlaubAdmin\Edit.cshtml" />
+    <Content Include="Views\Notification\AllNotification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\AdminEng\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

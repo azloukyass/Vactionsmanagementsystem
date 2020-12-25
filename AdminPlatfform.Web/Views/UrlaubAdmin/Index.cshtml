@@ -1,11 +1,35 @@
 ﻿@model IEnumerable<AdminPlatfform.Web.Events>
 
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Überblick";
 }
 
-<h2>Alle Einträge </h2>
+<h2>Alle Einträge</h2>
+
+<style>
+    html, body {
+        height: 100%;
+    }
+
+    body, html {
+        /* The image used */
+        background-image: url('../../images/mia-baker-CuoMduHwRZY-unsplash.jpg');
+        /* Full height */
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    th {
+        color:gray;
+    }
+    th:hover{
+        color:black;
+    }
+    td {
+        color:white;
+    }
+</style>
 <form method="get" asp-action="Index">
     <p>
         <input type="search" placeholder="Suchen..." value="@ViewData["Getdetais"]" name="searchString" style="width:500px;" />
@@ -14,12 +38,11 @@
     </p>
 
 </form>
-
 <table class="table">
     <tr>
 
         <th>
-            @Html.DisplayNameFor(model => model.Personalnummer)
+            Vorname und Personalnummer
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
@@ -28,7 +51,7 @@
             @Html.DisplayNameFor(model => model.Start)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EndDatum)
+            @Html.DisplayNameFor(model => model.End)
         </th>
         <th>
             Status
@@ -51,7 +74,7 @@
                 @Html.DisplayFor(modelItem => item.Start)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EndDatum)
+                @Html.DisplayFor(modelItem => item.End)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ThemeColor)
@@ -62,5 +85,4 @@
     }
 
 </table>
-
 <a href="@Url.Action("Index", "FirstLayout")" class="btn btn-info">Zurück</a>

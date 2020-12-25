@@ -12,7 +12,7 @@
 
     body, html {
         /* The image used */
-        background-image: url('Images/estee-janssens-zni0zgb3bkQ-unsplash.jpg');
+        background-image: url('../../images/estee-janssens-zni0zgb3bkQ-unsplash.jpg');
         /* Full height */
         /* Center and scale the image nicely */
         background-position: center;
@@ -22,6 +22,7 @@
 </style>
 <h2>Antrag Antwort</h2>
 <img src="~/Images/calendar-interface-symbol-tool.png" id="bild" width="50" height="50" />
+
 <div id="calender"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -92,10 +93,9 @@
                         <label>Theme Color</label>
                         <select id="ddThemeColor" class="form-control">
                             <option value="">Default</option>
-                            <option value="red">Red</option>
-                            <option value="blue">Blue</option>
-                            <option value="black">Black</option>
-                            <option value="green">Green</option>
+                            <option value="Abgelegt">Red</option>
+                            <option value="InBearbeitung">Blue</option>
+                            <option value="Genehmigt">Green</option>
                         </select>
                     </div>
                     <button type="button" id="btnSave" class="btn btn-success">Save</button>
@@ -105,7 +105,7 @@
         </div>
     </div>
 </div>
-
+<a href="@Url.Action("Index", "FirstLayout")" class="btn btn-info">Zurück</a>
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
@@ -122,7 +122,7 @@
                 events = [];
                 $.ajax({
                     type: "GET",
-                    url: "/Urlaub/GetEvents",
+                    url: "/UrlaubAdmin/GetEvents",
                     success: function (data) {
                         $.each(data, function (i, v) {
                             events.push({
@@ -209,7 +209,7 @@
                 if (selectedEvent != null && confirm('Are you sure?')) {
                     $.ajax({
                         type: "POST",
-                        url: '/Urlaub/DeleteEvent',
+                        url: '/UrlaubAdmin/DeleteEvent',
                         data: { 'eventID': selectedEvent.eventID },
                         success: function (data) {
                             if (data.status) {
@@ -286,13 +286,13 @@
                     IsFullDay: $('#chkIsFullDay').is(':checked')
                 }
                 SaveEvent(data);
-                // call function for submit data to the server
+                events.SaveEvent();
             })
 
             function SaveEvent(data) {
                 $.ajax({
                     type: "POST",
-                    url: '/Urlaub/SaveEvent',
+                    url: '/UrlaubAdmin/SaveEvent',
                     data: data,
                     success: function (data) {
                         if (data.status) {

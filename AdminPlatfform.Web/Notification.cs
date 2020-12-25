@@ -12,13 +12,15 @@ namespace AdminPlatfform.Web
     using System;
     using System.Collections.Generic;
     
-    public partial class Events
+    public partial class Notification
     {
-        public int EventID { get; set; }
-        public string Subject { get; set; }
-        public string Description { get; set; }
-        public Nullable<System.DateTime> Start { get; set; }
-        public string ThemeColor { get; set; }
-        public Nullable<System.DateTime> End { get; set; }
+        public int NotiId { get; set; }
+        public Nullable<int> FromUserId { get; set; }
+        public Nullable<int> ToUserId { get; set; }
+        public string NotiHeader { get; set; }
+        public string NotiBody { get; set; }
+        public Nullable<bool> isRead { get; set; }
+        public string Url { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
     }
 }

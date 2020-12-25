@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="JahreUrlaubDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="JahreUrlaubDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin_Geschäftfuehrer">
           <Key>
             <PropertyRef Name="Admin_id" />
@@ -35,9 +35,8 @@
           <Property Name="Subject" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Start" Type="date" />
-          <Property Name="EndDatum" Type="date" />
+          <Property Name="End" Type="date" />
           <Property Name="ThemeColor" Type="varchar" MaxLength="100" />
-          <Property Name="Personalnummer" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Urlaub">
           <Key>
@@ -58,8 +57,7 @@
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Urlaub" EntityType="Self.Urlaub" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="JahreUrlaubDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -93,9 +91,8 @@
           <Property Name="Subject" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Start" Type="DateTime" Precision="0" />
-          <Property Name="EndDatum" Type="DateTime" Precision="0" />
           <Property Name="ThemeColor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Personalnummer" Type="Int32" Nullable="false" />
+          <Property Name="End" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Urlaub">
           <Key>
@@ -149,13 +146,12 @@
           <EntitySetMapping Name="Events">
             <EntityTypeMapping TypeName="JahreUrlaubDBModel.Events">
               <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="End" ColumnName="End" />
                 <ScalarProperty Name="EventID" ColumnName="EventID" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Start" ColumnName="Start" />
-                <ScalarProperty Name="EndDatum" ColumnName="EndDatum" />
                 <ScalarProperty Name="ThemeColor" ColumnName="ThemeColor" />
-                <ScalarProperty Name="Personalnummer" ColumnName="Personalnummer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -31,22 +31,23 @@ namespace JahresUrlaub.Web.Controllers
             return View();
         }
 
-        public ActionResult Status()
-        {
-            return View();
-        }
+
 
         /// <summary>GetEvents : Buscar informação do evento</summary>
-        public JsonResult GetEvents(Benutzer e, Events x)
+        public JsonResult GetEvents(Events model)
         {
             using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
             {
-                var test = dc.Events.Where(x1 => x1.Subject == e.Personalnummer).ToList();
-                if (e.Personalnummer==x.Subject)
-                { 
-                    return new JsonResult { Data = test, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                using (BenutzerEntities users = new BenutzerEntities())
+                {
+                    var queryuser = users.Benutzer.Where(x => x.Vorname == model.Subject);
+                    if (queryuser == null)
+                    {
+                        var events = dc.Events.ToList();
+                        return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                    }
+                    else return null; 
                 }
-                else return null;
             }
         }
         [HttpPost]
@@ -63,9 +64,9 @@ namespace JahresUrlaub.Web.Controllers
                     {
                         v.Subject = e.Subject;
                         v.Start = e.Start;
-                        v.EndDatum = e.EndDatum;
+                        v.End= e.End;
                         v.Description = e.Description;
-                        v.Personalnummer = e.Personalnummer;
+                        
                         v.ThemeColor = e.ThemeColor;
                     }
                 }
