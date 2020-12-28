@@ -1,5 +1,6 @@
 ﻿using AdminPlatfform;
 using AdminPlatfform.Web;
+using AdminPlatfform.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

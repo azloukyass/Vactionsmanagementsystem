@@ -31,8 +31,6 @@ namespace JahresUrlaub.Web.Controllers
             return View();
         }
 
-
-
         /// <summary>GetEvents : Buscar informação do evento</summary>
         public JsonResult GetEvents(Events model)
         {
@@ -40,13 +38,10 @@ namespace JahresUrlaub.Web.Controllers
             {
                 using (BenutzerEntities users = new BenutzerEntities())
                 {
-                    var queryuser = users.Benutzer.Where(x => x.Vorname == model.Subject);
-                    if (queryuser == null)
-                    {
+                    
                         var events = dc.Events.ToList();
                         return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                    }
-                    else return null; 
+                  
                 }
             }
         }

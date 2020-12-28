@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminPlatfform.Web
+namespace AdminPlatfform.Web.Models
 {
     using System;
     using System.Collections.Generic;

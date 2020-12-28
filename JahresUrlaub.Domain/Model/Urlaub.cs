@@ -31,7 +31,7 @@ namespace JahresUrlaub.Domain.Model
         public DateTime Datum_Bis { get; set; }
 
         [BsonElement("Commentar")]
-        public string Commentar { get; set; }
+        public string Description { get; set; }
     }
 }
 

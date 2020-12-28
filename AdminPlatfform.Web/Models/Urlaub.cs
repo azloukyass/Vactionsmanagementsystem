@@ -7,19 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminPlatfform.Web
+namespace AdminPlatfform.Web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Benutzer
+    public partial class Urlaub
     {
-        public int Benutzer_id { get; set; }
+        public int Urlaub_id { get; set; }
         public string Personalnummer { get; set; }
         public string Vorname { get; set; }
         public string Nachname { get; set; }
-        public string Username { get; set; }
-        public string passwordUser { get; set; }
-        public string Abteilung { get; set; }
+        public Nullable<System.DateTime> Datum_Von { get; set; }
+        public Nullable<System.DateTime> Datum_Bis { get; set; }
+        public string Commentar { get; set; }
+        public string UrlaubStatus { get; set; }
     }
 }

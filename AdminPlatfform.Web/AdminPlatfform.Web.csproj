@@ -155,20 +155,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin_Geschäftfuehrer.cs">
+    <Compile Include="Models\Admin_Geschäftfuehrer.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
-    <Compile Include="AllModuls.Context.cs">
+    <Compile Include="Models\AllModuls.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AllModuls.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="AllModuls.cs">
+    <Compile Include="Models\AllModuls.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
-    <Compile Include="AllModuls.Designer.cs">
+    <Compile Include="Models\AllModuls.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AllModuls.edmx</DependentUpon>
@@ -176,7 +176,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Benutzer.cs">
+    <Compile Include="Models\Benutzer.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
     <Compile Include="Common\Global.cs" />
@@ -186,7 +186,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\UrlaubAdminController.cs" />
-    <Compile Include="Events.cs">
+    <Compile Include="Models\Events.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -213,17 +213,17 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\NotiService.cs" />
-    <Compile Include="Urlaub.cs">
+    <Compile Include="Models\Urlaub.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AllModuls.Context.tt">
+    <Content Include="Models\AllModuls.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AllModuls.Context.cs</LastGenOutput>
       <DependentUpon>AllModuls.edmx</DependentUpon>
     </Content>
-    <Content Include="AllModuls.tt">
+    <Content Include="Models\AllModuls.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AllModuls.edmx</DependentUpon>
       <LastGenOutput>AllModuls.cs</LastGenOutput>
@@ -272,11 +272,11 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="AllModuls.edmx">
+    <EntityDeploy Include="Models\AllModuls.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AllModuls.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="AllModuls.edmx.diagram">
+    <Content Include="Models\AllModuls.edmx.diagram">
       <DependentUpon>AllModuls.edmx</DependentUpon>
     </Content>
     <EntityDeploy Include="NotificationModel.edmx">
@@ -314,11 +314,10 @@
     <Content Include="Views\UrlaubAdmin\Index.cshtml" />
     <Content Include="Views\UrlaubAdmin\Edit.cshtml" />
     <Content Include="Views\Notification\AllNotification.cshtml" />
+    <Content Include="Views\AdminEng\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\AdminEng\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

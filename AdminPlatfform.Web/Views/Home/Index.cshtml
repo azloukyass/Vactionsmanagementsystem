@@ -1,12 +1,13 @@
-﻿@model AdminPlatfform.Web.Admin_Geschäftfuehrer
+﻿@model AdminPlatfform.Web.Models.Admin_Geschäftfuehrer
 
 @{
     ViewBag.Title = "Login";
 }
 <style>
     .field-validation-error {
-        color:red;
+        color: red;
     }
+
     .all {
         padding-left: 450px;
         padding-top: 170px;
@@ -29,7 +30,7 @@
     }
 
     .allbutton {
-        padding-left: 50px;
+        margin-left: 5px;
     }
 
     h2 {
@@ -55,14 +56,14 @@
         {
             @Html.AntiForgeryToken()
 
-            
+
             <div id="a1">@Html.LabelFor(model => model.Username)</div>
-              
-                @Html.EditorFor(model => model.Username)
-            
+
+            @Html.EditorFor(model => model.Username)
+
             <p>@Html.ValidationMessageFor(model => model.Username)</p>
 
-            <div  class="input-div two">
+            <div class="input-div two">
                 <div class="i">
                     <i class="fas fa-lock"></i>
                 </div>
@@ -75,10 +76,9 @@
             </div>
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
-                <a href="@Url.Action("AddOrEdit", "Registieren")" class="btn btn-primary">Registieren</a>
+                <a href="@Url.Action("AddOrEdit", "AdminEng")" class="btn btn-primary">Registieren</a>
 
             </div>
-            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
         }
     </div>
 </body>

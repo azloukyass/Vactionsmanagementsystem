@@ -7,20 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AdminPlatfform.Web
+namespace AdminPlatfform.Web.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Urlaub
+    public partial class Events
     {
-        public int Urlaub_id { get; set; }
-        public string Personalnummer { get; set; }
-        public string Vorname { get; set; }
-        public string Nachname { get; set; }
-        public Nullable<System.DateTime> Datum_Von { get; set; }
-        public Nullable<System.DateTime> Datum_Bis { get; set; }
-        public string Commentar { get; set; }
-        public string UrlaubStatus { get; set; }
+        public int EventID { get; set; }
+        public string Subject { get; set; }
+        public string Description { get; set; }
+        public Nullable<System.DateTime> Start { get; set; }
+        public string ThemeColor { get; set; }
+        public Nullable<System.DateTime> End { get; set; }
     }
 }
