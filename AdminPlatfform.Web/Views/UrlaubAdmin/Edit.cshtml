@@ -5,20 +5,9 @@
     ViewBag.Title = "AntwortAntragView";
 }
 
-
 <style>
     #bild {
         margin-left: 200px;
-    }
-
-    body, html {
-        /* The image used */
-        background-image: url('../../images/estee-janssens-zni0zgb3bkQ-unsplash.jpg');
-        /* Full height */
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
     }
 </style>
 <h2>Antrag Antwort</h2>
@@ -54,13 +43,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Save Event</h4>
+                <h4 class="modal-title">Antrag beantworten</h4>
             </div>
             <div class="modal-body">
                 <form class="col-md-12 form-horizontal">
                     <input type="hidden" id="hdEventID" value="0" />
                     <div class="form-group">
-                        <label>Subject</label>
+                        <label>Vorname und Personalnummer</label>
                         <input type="text" id="txtSubject" class="form-control" />
                     </div>
                     <div class="form-group">
@@ -72,11 +61,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  Is Full Day event</label>
-                        </div>
-                    </div>
+                    
                     <div class="form-group" id="divEndDate" style="display:none">
                         <label>End</label>
                         <div class="input-group date" id="dtp2">
@@ -91,7 +76,7 @@
                         <textarea id="txtDescription" rows="3" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Theme Color</label>
+                        <label>Status</label>
                         <select id="ddThemeColor" class="form-control">
                             <option value="">Default</option>
                             <option value="Abgelegt">Red</option>
