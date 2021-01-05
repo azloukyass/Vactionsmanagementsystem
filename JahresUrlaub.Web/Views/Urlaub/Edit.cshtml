@@ -1,13 +1,21 @@
 ﻿
+@{
+    ViewBag.Title = "AntragBearbeiten";
+}
 <style>
     #bild {
         margin-left: 200px;
     }
-   
+
+    label {
+        color: burlywood;
+    }
 </style>
 <h2>Urlaub-Antrag-Bearbeiten</h2>
 <img src="~/Images/calendar-interface-symbol-tool.png" id="bild" width="50" height="50" />
 <div id="calender"></div>
+
+
 
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -30,66 +38,63 @@
             </div>
         </div>
     </div>
-</div>
 
+</div>
 <div id="myModalSave" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Save Event</h4>
+                <h4 class="modal-title">Urlaub-Edit</h4>
             </div>
             <div class="modal-body">
                 <form class="col-md-12 form-horizontal">
                     <input type="hidden" id="hdEventID" value="0" />
                     <div class="form-group">
-                        <label>Subject</label>
+                        <label>Vorname und Personalnummer</label>
                         <input type="text" id="txtSubject" class="form-control" />
                     </div>
-                    <div class="form-group">
-                        <label>Start</label>
-                        <div class="input-group date" id="dtp1">
-                            <input type="text" id="txtStart" class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="chkIsFullDay" checked="checked" />  Is Full Day event</label>
-                        </div>
-                    </div>
-                    <div class="form-group" id="divEndDate" style="display:none">
-                        <label>End</label>
-                        <div class="input-group date" id="dtp2">
-                            <input type="text" id="txtEnd" class="form-control" />
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea id="txtDescription" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Theme Color</label>
-                        <select id="ddThemeColor" class="form-control">
-                            <option value="">Default</option>
-                            <option value="red">Red</option>
-                            <option value="blue">Blue</option>
-                            <option value="black">Black</option>
-                            <option value="green">Green</option>
-                        </select>
-                    </div>
-                    <button type="button" id="btnSave" class="btn btn-success">Save</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </form>
+                <div class="form-group">
+                    <label>Start</label>
+                    <div class="input-group date" id="dtp1">
+                        <input type="text" id="txtStart" class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group" id="divEndDate">
+                    <label>End</label>
+                    <div class="input-group date" id="dtp2">
+                        <input type="text" id="txtEnd" class="form-control" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="txtDescription" rows="3" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="ddThemeColor" class="form-control">
+                        <option value="">Default</option>
+                        <option value="Blue">InBearbeitung</option>
+                    </select>
+                </div>
+                <button type="button" id="btnSave" class="btn btn-success">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
             </div>
+
         </div>
     </div>
 </div>
+
+
 <a href="@Url.Action("Index", "FirstPage")" class="btn btn-info">Zurück</a>
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />

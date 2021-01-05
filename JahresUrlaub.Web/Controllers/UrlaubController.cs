@@ -14,7 +14,7 @@ namespace JahresUrlaub.Web.Controllers
         ///   <para>GET : Home DataEvent for Calendar</para>
         ///   <para>return View(); </para>
         /// </summary>
-        /// 
+        
 
         public BenutzerEntities db;
         public UrlaubController()
@@ -32,18 +32,18 @@ namespace JahresUrlaub.Web.Controllers
         }
 
         /// <summary>GetEvents : Buscar informação do evento</summary>
-        public JsonResult GetEvents(Events model)
+        public JsonResult GetEvents()
         {
             using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
             {
-                using (BenutzerEntities users = new BenutzerEntities())
-                {
+                
+                
                     
                         var events = dc.Events.ToList();
                         return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                   
-                }
-            }
+             }
+           
         }
         [HttpPost]
         public JsonResult SaveEvent(Events e)
@@ -73,10 +73,8 @@ namespace JahresUrlaub.Web.Controllers
                 dc.SaveChanges();
                 status = true;
             }
-
             return new JsonResult { Data = new { status = status } };
         }
-
         /// <summary>Deletes the event.</summary>
         /// <param name="EventID">The event identifier.</param>
         /// <returns></returns>

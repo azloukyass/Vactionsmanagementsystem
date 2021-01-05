@@ -559,7 +559,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Urlaub\Index.cshtml" />
     <Content Include="Views\Urlaub\Edit.cshtml" />
-    <Content Include="Views\Status\Status.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
