@@ -1,37 +1,36 @@
 using AdminPlatfform.Web.Models;
 using JahresUrlaub.Web;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
+using UserReg.Controllers;
 
 namespace Urlaubsverwaltung.Test
 {
     public class Tests
     {
-        [Test]
-        public void ShouldAuthenticateValidUser()
+        [TestMethod]
+        public void LogOnTest1()
         {
-            BenutzerEntities db = new BenutzerEntities();
-            var service = new AuthenticationService(db);
+            LoginController Controller = new LoginController();
 
-            db("Name", "Password");
+            BenutzerEntities benutzerEntities = new BenutzerEntities();
+            AdminPlatfform.Web.Models.Benutzer benutzer = new AdminPlatfform.Web.Models.Benutzer();
+            benutzer.Username = "testuser"; 
+            benutzer.passwordUser = "test1234";
 
-            Assert.IsTrue(service.DoLogin("Name", "Password"));
+            if (Controller. == null)
+            {
+                controller.MembershipService = new AccountMembershipService();
+            }
 
-            //Ensure data access layer was used
-            Assert.IsTrue(mockDa.GetUserFromDBWasCalled);
-        }
+            if (controller.FormsService == null)
+            {
+                controller.FormsService = new FormsAuthenticationService();
+            }
 
-        [Test]
-        public void ShouldNotAuthenticateUserWithInvalidPassword()
-        {
-            IMyMockDa mockDa = new MockDataAccess();
-            var service = new AuthenticationService(mockDa);
+            var result = controller.LogOn(logonModel, "") as ViewResult;
 
-            mockDa.AddUser("Name", "Password");
-
-            Assert.IsFalse(service.DoLogin("Name", "BadPassword"));
-
-            //Ensure data access layer was used
-            Assert.IsTrue(mockDa.GetUserFromDBWasCalled);
+            Assert.AreEqual("Index", result.ViewName);
         }
     }
 }
