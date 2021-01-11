@@ -9,15 +9,13 @@ namespace JahresUrlaub.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(string username)
+       
+        public ActionResult Index()
         {
-            if (Session["username"] != null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else return View();
-           
+          
+           return View();
         }
+
     }
         
 }

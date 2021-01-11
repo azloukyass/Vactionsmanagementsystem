@@ -418,6 +418,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalendarModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\FirstPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -493,6 +494,7 @@
     <Content Include="Images\krakenimages-376KN_ISplE-unsplash.jpg" />
     <Content Include="Images\login.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\notification.png" />
     <Content Include="Images\paket.png" />
     <Content Include="Images\patrick-amoy-OSiLnlAcwYg-unsplash.jpg" />
     <Content Include="Images\pexels-jess-bailey-designs-1558691.jpg" />
@@ -555,11 +557,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Registieren\AddOrEdit.cshtml" />
-    <Content Include="Views\FirstPage\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Urlaub\Index.cshtml" />
     <Content Include="Views\Urlaub\Edit.cshtml" />
+    <Content Include="Views\FirstPage\Index.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

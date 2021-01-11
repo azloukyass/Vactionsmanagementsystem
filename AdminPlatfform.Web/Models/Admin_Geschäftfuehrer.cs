@@ -11,13 +11,19 @@ namespace AdminPlatfform.Web.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Admin_Geschäftfuehrer
     {
         public int Admin_id { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Vorname { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Nachname { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Username { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         public string LoginErrorMessage { get; set; }
     }

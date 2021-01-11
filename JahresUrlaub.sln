@@ -9,7 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urlaubsverwaltung.Web", "Ja
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPlatfform.Web", "AdminPlatfform.Web\AdminPlatfform.Web.csproj", "{6A38CA89-6832-49C2-B0F9-068021E908C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Urlaubsverwaltung.Test", "Urlaubsverwaltung.Test\Urlaubsverwaltung.Test.csproj", "{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Urlaubsverwaltung.Test", "Urlaubsverwaltung.Test\Urlaubsverwaltung.Test.csproj", "{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveChat", "..\..\..\Downloads\LiveChatDemo\LiveChat\LiveChat.csproj", "{963C16FB-F416-4C6F-A58A-64CB4016204F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorChatt.Client", "BlazorChatt.Client\BlazorChatt.Client.csproj", "{E3860A28-D831-4AA6-8929-4AA83488D65D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorrChat.Server", "BlazorrChat.Server\BlazorrChat.Server.csproj", "{A9FBEE2E-9C19-4EF9-AF0B-C561141A7900}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSignalRNotification", "..\..\..\Desktop\BlazorSignalRNotification\BlazorSignalRNotification\BlazorSignalRNotification.csproj", "{F756547D-5D9E-4D3C-ADA9-44B6F05932CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,22 @@ Global
 		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46C98B88-DF91-432F-8CF1-8A5BCE6D9A53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963C16FB-F416-4C6F-A58A-64CB4016204F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963C16FB-F416-4C6F-A58A-64CB4016204F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963C16FB-F416-4C6F-A58A-64CB4016204F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963C16FB-F416-4C6F-A58A-64CB4016204F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3860A28-D831-4AA6-8929-4AA83488D65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3860A28-D831-4AA6-8929-4AA83488D65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3860A28-D831-4AA6-8929-4AA83488D65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3860A28-D831-4AA6-8929-4AA83488D65D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9FBEE2E-9C19-4EF9-AF0B-C561141A7900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9FBEE2E-9C19-4EF9-AF0B-C561141A7900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9FBEE2E-9C19-4EF9-AF0B-C561141A7900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9FBEE2E-9C19-4EF9-AF0B-C561141A7900}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F756547D-5D9E-4D3C-ADA9-44B6F05932CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F756547D-5D9E-4D3C-ADA9-44B6F05932CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F756547D-5D9E-4D3C-ADA9-44B6F05932CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F756547D-5D9E-4D3C-ADA9-44B6F05932CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

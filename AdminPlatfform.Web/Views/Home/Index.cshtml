@@ -28,7 +28,9 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
+    .field-validation-error {
+        color: red;
+    }
     .allbutton {
         margin-left: 5px;
     }
@@ -77,6 +79,7 @@
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
                 <a href="@Url.Action("AddOrEdit", "AdminEng")" class="btn btn-primary">Registieren</a>
+                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
 
             </div>
         }

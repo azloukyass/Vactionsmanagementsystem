@@ -37,8 +37,6 @@ namespace JahresUrlaub.Web.Controllers
             using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
             {
                 
-                
-                    
                         var events = dc.Events.ToList();
                         return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
                   

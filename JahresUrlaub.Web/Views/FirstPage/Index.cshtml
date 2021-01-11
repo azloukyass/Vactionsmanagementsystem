@@ -1,6 +1,4 @@
-@model JahresUrlaub.Web.Benutzer
-
-
+ï»¿
 <html>
 @{
     ViewBag.Title = "FirstPage";
@@ -36,7 +34,7 @@
         }
 
         #GruppElement {
-            margin-left: 80px;
+            margin-left: 60px;
             margin-top: 50px;
         }
 
@@ -51,12 +49,12 @@
         }
 
         #GruppElement1 {
-            margin-left: 500px;
+            margin-left: 380px;
             margin-top: -145px;
         }
 
         #GruppElement2 {
-            margin-left: 900px;
+            margin-left: 700px;
             margin-top: -145px;
         }
 
@@ -76,6 +74,13 @@
 
         #out {
             margin-left: 1000px;
+        }
+        #GruppElement3 {
+            margin-left: 1000px;
+            margin-top: -145px;
+        }
+        #btt4{
+            margin-left:20px;
         }
     </style>
     <script type="text/javascript">
@@ -98,15 +103,20 @@
             <div id="GruppElement1">
                 <img src="~/Images/folder.png" id="addbild1" width="100" height="100" />
                 <br />
-                <a href="@Url.Action("Index", "Status")" class="btn btn-success">Status überprüfen</a>
-
-
+                <a href="@Url.Action("Index" ,"Status")" class="btn btn-success">Urlaub-Bearbeiten</a>
             </div>
             <div id="GruppElement2">
                 <img src="~/Images/paket.png" id="addbild1" width="100" height="100" />
                 <br />
                 <a href="@Url.Action("Edit", "Urlaub")" class="btn btn-success">Urlaub-Bearbeiten</a>
             </div>
+            <div id="GruppElement3">
+                <img src="~/Images/notification.png" id="addbild1" width="100" height="100" />
+                <br />
+                <a href="https://localhost:44335" class="btn btn-success"id="btt4" >Notifikation</a>
+            </div>
+
+
         </span>
     </body>
 </html>
@@ -115,26 +125,58 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Status</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
 
+
                 <form method="get" asp-action="Index">
                     <p>
                         <input type="search" placeholder="Suchen..." value="@ViewData["Getdetais"]" name="searchString" style="width:500px;" />
                         <input type="submit" value="Search" class="btn btn-primary" />
-                        <a href="~/Status/Index">Get All Info </a>
+                    
                     </p>
+                    
+                    <script>
+                        $(document).ready(function () {
+                            var events = [];
+                            var selectedEvent = null;
+                            FetchEventAndRenderCalendar();
+                            function FetchEventAndRenderCalendar() {
+                                events = [];
+                                $.ajax({
+                                    type: "GET",
+                                    url: "/UFirstPage/GetEvents",
+                                    success: function (data) {
+                                        $.each(data, function (i, v) {
+                                            events.push({
+                                                eventID: v.EventID,
+                                                title: v.Subject,
+                                                description: v.Description,
+                                                start: moment(v.Start),
+                                                end: v.End != null ? moment(v.End) : null,
+                                                color: v.ThemeColor,
+                                                allDay: v.IsFullDay
+                                            });
+                                        })
 
+                                        GenerateCalender(events);
+                                    },
+                                    error: function (error) {
+                                        alert('failed');
+                                    }
+                                })
+                            }
+                    </script>
                 </form>
 
             </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
+</div>

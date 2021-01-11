@@ -11,12 +11,25 @@ namespace JahresUrlaub.Web.Controllers
     public class FirstPageController : Controller
     {
 
-
+        JahreUrlaubDBEntitiess _db; 
+        public FirstPageController()
+        {
+            _db = new JahreUrlaubDBEntitiess(); 
+        }
      
         // GET: FirstPage
         public ActionResult Index()
         {
-            return View();
+            return View(); 
+        }
+        public JsonResult GetEvents()
+        {
+            using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
+            {
+
+                var events = dc.Events.ToList();
+                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
         }
     }
 }

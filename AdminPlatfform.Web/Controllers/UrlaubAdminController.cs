@@ -39,9 +39,6 @@ namespace AdminPlatfform.Web.Controllers
             return View();
         }
 
-
-
-        
         public JsonResult GetEvents()
         {
             using (AdminEntities dc = new AdminEntities())

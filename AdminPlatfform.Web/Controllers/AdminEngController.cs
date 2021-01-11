@@ -37,7 +37,7 @@ namespace AdminPlatfform.Web.Controllers
             using (AdminEntities model = new AdminEntities())
             {
                 model.Admin_Geschäftfuehrer.Add(userModel);
-                model.SaveChanges();
+               model.SaveChanges();
             }
             ModelState.Clear();
             ViewBag.SuccessMessage = "Registration Successful ";

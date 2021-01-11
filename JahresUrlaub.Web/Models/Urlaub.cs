@@ -5,7 +5,6 @@ using System.Web;
 
 namespace JahresUrlaub.Web.Models
 {
-
 // Urlaub Models 
     public class Urlaub
     {   

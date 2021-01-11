@@ -16,15 +16,10 @@ namespace JahresUrlaub.Web
     public partial class Events
     {
         public int EventID { get; set; }
-        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Subject { get; set; }
-        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Description { get; set; }
-        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public Nullable<System.DateTime> Start { get; set; }
-        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string ThemeColor { get; set; }
-        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public Nullable<System.DateTime> End { get; set; }
     }
 }

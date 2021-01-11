@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
 namespace UserReg.Controllers
 {
     public class LoginController : Controller
@@ -13,12 +12,7 @@ namespace UserReg.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            if (Session["username"] != null)
-            {
-                return RedirectToAction("Index", "Home", new { username = Session["username"].ToString() });
-            }
-            else return View();
-
+            return View();
         }
 
         [HttpPost]
@@ -33,7 +27,7 @@ namespace UserReg.Controllers
                     return View("Index", userModel);
                 }
                 else
-                    Session["username"] = userModel.Username;
+                   
                 return View("~/Views/FirstPage/Index.cshtml", userModel);
             }
         }
@@ -42,5 +36,6 @@ namespace UserReg.Controllers
             Session.Remove("username");
             return RedirectToAction("Index", "Home");
         }
+
     }
 }

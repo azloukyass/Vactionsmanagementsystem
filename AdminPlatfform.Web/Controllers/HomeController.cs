@@ -12,7 +12,5 @@ namespace AdminPlatfform.Web.Controllers
         {
             return View();
         }
-
-       
     }
 }

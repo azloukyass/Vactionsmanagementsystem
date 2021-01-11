@@ -8,7 +8,6 @@ namespace AdminPlatfform.Web.IService
 {
     public interface INotiService
     {
-        List<Notification> GetNotifications(int noToUserId, bool bIsGetOnlyUnread);
-      
+        List<Notification> GetNotifications(int noToUserId, bool bIsGetOnlyUnread);  
     }
 }

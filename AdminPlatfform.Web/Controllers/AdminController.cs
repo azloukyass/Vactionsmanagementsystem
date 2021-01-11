@@ -21,14 +21,14 @@ namespace UserReg.Controllers
         {
             using (AdminEntities db = new AdminEntities())
             {
-                var userDetails = db.Benutzer.Where(x => x.Username == AdminModel.Username && x.passwordUser == AdminModel.Password).FirstOrDefault();
+                var userDetails = db.Admin_Geschäftfuehrer.Where(x => x.Username == AdminModel.Username && x.Password== AdminModel.Password).FirstOrDefault();
                 if (userDetails == null)
                 {
-                    AdminModel.LoginErrorMessage = " Falsch Username oder Password";
+                    AdminModel.LoginErrorMessage = "Überprüfen Sie Ihre Daten nach bitte ! ";
                     return View("Index", AdminModel);
                 }
                 else
-                    return View("~/Views/FirstPage/Index.cshtml", AdminModel);
+                    return View("~/Views/FirstLayout/Index.cshtml", AdminModel);
             }
         }
     }
