@@ -1,4 +1,5 @@
-﻿@model JahresUrlaub.Web.Benutzer
+﻿
+@model JahresUrlaub.Web.Models.Users
 
 @{
     ViewBag.Title = "Login";
@@ -51,10 +52,10 @@
             @Html.AntiForgeryToken()
 
             <div>
-                @Html.LabelFor(model => model.Username)
-                @Html.EditorFor(model => model.Username)
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email)
             </div>
-            <p>@Html.ValidationMessageFor(model => model.Username)</p>
+            <p>@Html.ValidationMessageFor(model => model.Email)</p>
 
             <div class="input-div two">
                 <div class="i">
@@ -62,14 +63,14 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    @Html.EditorFor(model => model.passwordUser)
+                    @Html.EditorFor(model => model.Password)
                 </div>
 
-                <p>@Html.ValidationMessageFor(model => model.passwordUser)</p>
+                <p>@Html.ValidationMessageFor(model => model.Password)</p>
             </div>
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
-                <a href="@Url.Action("AddOrEdit", "Registieren")" class="btn btn-primary">Registieren</a>
+                <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
 
             </div>
             <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>

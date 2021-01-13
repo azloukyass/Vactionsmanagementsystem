@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.12.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.12.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -375,6 +378,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -385,24 +389,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Benutzer.cs">
-      <DependentUpon>BenutzerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BenutzerModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenutzerModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BenutzerModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenutzerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BenutzerModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BenutzerModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="CalendarModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -424,6 +410,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegistierenController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
+    <Compile Include="Controllers\TestLoginController.cs" />
     <Compile Include="Controllers\UrlaubController.cs" />
     <Compile Include="Events.cs">
       <DependentUpon>CalendarModel.tt</DependentUpon>
@@ -446,25 +433,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DialogDialogButton.cs" />
-    <Compile Include="Models\ModalButtonModel.cs" />
+    <Compile Include="Models\Crypto.cs" />
+    <Compile Include="Models\Extended\Users.cs" />
     <Compile Include="Models\Urlaub.cs" />
+    <Compile Include="Models\User.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Urlaub.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BenutzerModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BenutzerModel.edmx</DependentUpon>
-      <LastGenOutput>BenutzerModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="BenutzerModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BenutzerModel.edmx</DependentUpon>
-      <LastGenOutput>BenutzerModel.cs</LastGenOutput>
-    </Content>
     <Content Include="CalendarModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CalendarModel.edmx</DependentUpon>
@@ -510,6 +506,16 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\User.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\User.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Model1.edmx">
@@ -519,19 +525,19 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="BenutzerModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BenutzerModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="BenutzerModel.edmx.diagram">
-      <DependentUpon>BenutzerModel.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="CalendarModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CalendarModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="CalendarModel.edmx.diagram">
       <DependentUpon>CalendarModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\User.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\User.edmx.diagram">
+      <DependentUpon>User.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -556,16 +562,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Registieren\AddOrEdit.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Urlaub\Index.cshtml" />
     <Content Include="Views\Urlaub\Edit.cshtml" />
     <Content Include="Views\FirstPage\Index.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
-    <Content Include="Views\Chat\Chat.cshtml" />
+    <Content Include="Views\Registieren\Add.cshtml" />
+    <Content Include="Views\Registieren\VerifyAccount.cshtml" />
+    <Content Include="Views\Registieren\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TestLogin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

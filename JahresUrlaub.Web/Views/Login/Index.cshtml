@@ -1,26 +1,28 @@
-﻿@model JahresUrlaub.Web.Benutzer
+﻿@model JahresUrlaub.Web.Models.Users
 
 @{
     ViewBag.Title = "Login";
 }
 <style>
     h2 {
-        
         color: white;
-        padding-left:25px;
+        padding-left: 25px;
     }
+
     .all {
         padding-left: 450px;
         padding-top: 170px;
         text-align: center;
         display: inline-block;
     }
+
     .field-validation-error {
         color: red;
-        font-weight:bold;
-        font-family:Bahnschrift;
-        padding-left:20px;
+        font-weight: bold;
+        font-family: Bahnschrift;
+        padding-left: 20px;
     }
+
     body, html {
         height: 100%;
     }
@@ -38,7 +40,6 @@
     .allbutton {
         padding-left: 50px;
     }
-   
 </style>
 <body>
     <div class="all">
@@ -50,10 +51,10 @@
             @Html.AntiForgeryToken()
 
             <div>
-                @Html.LabelFor(model => model.Username)
-                @Html.EditorFor(model => model.Username)
+                @Html.LabelFor(model => model.Email)
+                @Html.EditorFor(model => model.Email)
             </div>
-            <p>@Html.ValidationMessageFor(model => model.Username)</p>
+            <p>@Html.ValidationMessageFor(model => model.Email)</p>
 
             <div class="input-div two">
                 <div class="i">
@@ -61,14 +62,14 @@
                 </div>
                 <div>
                     <label>Password</label>
-                    @Html.EditorFor(model => model.passwordUser)
+                    @Html.EditorFor(model => model.Password)
                 </div>
 
-                <p>@Html.ValidationMessageFor(model => model.passwordUser)</p>
+                <p>@Html.ValidationMessageFor(model => model.Password)</p>
             </div>
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
-                <a href="@Url.Action("AddOrEdit", "Registieren")" class="btn btn-primary">Registieren</a>
+                <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
 
             </div>
             <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>

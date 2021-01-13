@@ -16,10 +16,10 @@ namespace JahresUrlaub.Web.Controllers
         /// </summary>
         
 
-        public BenutzerEntities db;
+        
         public UrlaubController()
         {
-            db = new BenutzerEntities();
+       
         }
         public ActionResult Index()
         {
@@ -31,7 +31,7 @@ namespace JahresUrlaub.Web.Controllers
             return View();
         }
 
-        /// <summary>GetEvents : Buscar informação do evento</summary>
+      
         public JsonResult GetEvents()
         {
             using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())

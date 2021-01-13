@@ -234,7 +234,6 @@
     <Compile Include="Models\Urlaub.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
-    <Compile Include="SignalR\hubs\ChatLive.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\notification.png" />
@@ -251,8 +250,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Notification\ikr.notification.css" />
-    <Content Include="Content\Notification\ikr.notificationPlugin.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
