@@ -9,7 +9,7 @@ namespace JahresUrlaub.Web.Models
     public class UserLogin
     {
         [Display(Name = "Email")]
-            [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress)]
         [Required(AllowEmptyStrings =false ,ErrorMessage ="Email ist Erfolgreich")]
         public string Email { get; set; }
 

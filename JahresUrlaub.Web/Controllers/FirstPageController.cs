@@ -11,6 +11,7 @@ namespace JahresUrlaub.Web.Controllers
     public class FirstPageController : Controller
     {
 
+
         JahreUrlaubDBEntitiess _db; 
         public FirstPageController()
         {
@@ -18,6 +19,7 @@ namespace JahresUrlaub.Web.Controllers
         }
      
         // GET: FirstPage
+        
         public ActionResult Index()
         {
             return View(); 

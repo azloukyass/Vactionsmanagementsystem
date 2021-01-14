@@ -1,5 +1,5 @@
-﻿
-@model JahresUrlaub.Web.Models.Users
+﻿@model JahresUrlaub.Web.Models.Users
+
 
 @{
     ViewBag.Title = "Login";
@@ -47,7 +47,7 @@
         <h2>Login</h2>
 
 
-        @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Login","Login" ,FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
@@ -68,12 +68,16 @@
 
                 <p>@Html.ValidationMessageFor(model => model.Password)</p>
             </div>
+       
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
                 <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
 
             </div>
-            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+            <div>
+                @Html.ActionLink("Passord Vergessen","ForgotPassword" ,"Login")
+            </div>
+
         }
     </div>
 </body>

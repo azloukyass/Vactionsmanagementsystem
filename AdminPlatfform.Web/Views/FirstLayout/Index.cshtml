@@ -1,96 +1,106 @@
 ﻿@model AdminPlatfform.Web.Models.Admin_Geschäftfuehrer
-<html>
-<head>
-    <title>Dashbord</title>
-</head>
-<body>
-    <style>
-        .vl {
-            border-left: 6px solid green;
-            margin-top: 20px;
-            margin-left: 80px;
-        }
-
-        #bild {
-            margin-right: 100px;
-            margin-top: 60px;
-        }
-
-       
-        .allbutton {
-            margin-right: 5px;
-            margin-left: 20px;
-            margin-top: 70px;
-        }
-
-        #bild1 {
-            width: 500px;
-            height: 400px;
-            margin-left: 200px;
-            margin-top: 50px;
-        }
-
-        #GruppElement {
-            margin-left: 200px;
-            margin-top: 100px;
-        }
-
-        .btn {
-            margin-top: 10px;
-            margin-right: -10px;
-        }
-
-        #addbild1 {
-            margin-left: 50px;
-            
-        }
-        #addbild2 {
-            margin-left: 30px;
-        }
-        #GruppElement1 {
-            margin-left: 500px;
-            margin-top: 20px;
-        }
-
-      
-
-        html, body {
-            height:100%;
-        }
-        body, html {
-            /* The image used */
-            background-image: url('../../images/priscilla-du-preez-OEdkPaxYMXU-unsplash.jpg');
-            /* Full height */
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        #out {
-            margin-left: 1000px;
-            margin-top:10px;
-        }
-            
-    </style>
+   
+    @{
+        ViewBag.Title = "FirstPage";
+    }
     <body>
+        <style>
+            .vl {
+                border-left: 6px solid green;
+                margin-top: 20px;
+                margin-left: 80px;
+            }
 
-        <span id="all">
-            <a id="out" href="@Url.Action( "Index", "Home")"><img src="~/images/ausloggen (2).png" width="40" height="40" /></a>
-            <div id="GruppElement">
-                <img src="~/images/observation.png" id="addbild1" width="100" height="100" />
-                <br />
-                <a href="@Url.Action("Index", "UrlaubAdmin")" class="btn btn-primary">Alle Anträge anschauen</a>
-            </div>
-            <div id="GruppElement1">
-                <img src="~/Images/paket.png" id="addbild2" width="100" height="100" />
-                <br />
-                <a href="@Url.Action("Edit", "UrlaubAdmin")" class="btn btn-primary">Auf Antrag antworten</a>
-            </div>
-            <div id="GruppElement2">
-                <img src="~/Images/notification.png" id="addbild2" width="100" height="100" />
-                <br />
-                <a href="https://localhost:44335" class="btn btn-primary">Notifikation</a>
-            </div>
-        </span>
-    </body>
-</html>
+            #bild {
+                margin-right: 100px;
+                margin-top: 60px;
+            }
+
+
+            .allbutton {
+                margin-right: 5px;
+                margin-left: 20px;
+                margin-top: 70px;
+            }
+
+            #bild1 {
+                width: 500px;
+                height: 400px;
+                margin-left: 200px;
+                margin-top: 50px;
+            }
+
+            #GruppElement {
+                margin-left: 100px;
+                margin-top: 80px;
+            }
+
+            .btn {
+                margin-top: 10px;
+                margin-right: -10px;
+            }
+
+            #addbild1 {
+                margin-left: 50px;
+            }
+
+            #addbild2 {
+                margin-left: 30px;
+            }
+
+            #GruppElement1 {
+                margin-left: 350px;
+                margin-top: 10px;
+            }
+
+            #GruppElement2 {
+                margin-left: 580px;
+                margin-top: -10px;
+            }
+
+
+            html, body {
+                height: 100%;
+            }
+
+            body, html {
+                /* The image used */
+                background-image: url('../../images/priscilla-du-preez-OEdkPaxYMXU-unsplash.jpg');
+                /* Full height */
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #out {
+                margin-left: 1000px;
+                margin-top: 10px;
+            }
+
+            #btt3 {
+                margin-left: 35px;
+            }
+        </style>
+        <body>
+
+            <span id="all">
+                <a id="out" href="@Url.Action( "Index", "Home")"><img src="~/images/ausloggen (2).png" width="40" height="40" /></a>
+                <div id="GruppElement">
+                    <img src="~/images/observation.png" id="addbild1" width="100" height="100" />
+                    <br />
+                    <a href="@Url.Action("Index", "UrlaubAdmin")" class="btn btn-primary">Alle Anträge anschauen</a>
+                </div>
+                <div id="GruppElement1">
+                    <img src="~/Images/paket.png" id="addbild2" width="100" height="100" />
+                    <br />
+                    <a href="@Url.Action("Edit", "UrlaubAdmin")" class="btn btn-primary">Auf Antrag antworten</a>
+                </div>
+                <div id="GruppElement2">
+                    <img src="~/Images/notification.png" id="addbild2" width="100" height="100" />
+                    <br />
+                    <a href="https://localhost:44335" id="btt3" class="btn btn-primary">Notifikation</a>
+                </div>
+            </span>
+        </body>
+    

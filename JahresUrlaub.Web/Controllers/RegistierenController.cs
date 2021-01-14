@@ -50,8 +50,8 @@ namespace JahresUrlaub.Web.Controllers
                 #endregion
 
                 #region Password Hashing 
-                users.Password = Crypto.Hash(users.Password);
-                users.ConfirmPassword = Crypto.Hash(users.ConfirmPassword); // 
+                //users.Password = Crypto.Hash(users.Password);
+                //users.ConfirmPassword = Crypto.Hash(users.ConfirmPassword); // 
                 #endregion
                 users.IsEmailVerified = false;
                 #region Save to Database 
@@ -112,66 +112,7 @@ namespace JahresUrlaub.Web.Controllers
 
         // Verfiy Email LINK
 
-        //Login 
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-        //Login POST
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(UserLogin Login ,string ReturnUr="")
-        {
-            string message = "";
-            using (UserEntities db= new UserEntities())
-            {
-              
-                var v = db.Users.Where(a => a.Email == Login.Email).FirstOrDefault();
-                if(v!=null)
-                {
-                    if(string.Compare(Crypto.Hash(Login.Password),v.Password)==0)
-                    {
-                        int timeout = Login.RememberMe ? 525600 : 1; //525600 min = 1 Jahr  
-                        var ticket = new FormsAuthenticationTicket(Login.Email, Login.RememberMe, timeout);
-                        string encrypted = FormsAuthentication.Encrypt(ticket);
-                        var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
-                        cookie.Expires = DateTime.Now.AddMinutes(timeout);
-                        Response.Cookies.Add(cookie);
-
-                        if(Url.IsLocalUrl(ReturnUr))
-                        {
-                            return Redirect(ReturnUr);
-                        }
-                        else
-                        {
-                            return RedirectToAction("Index", "FirstPage");
-                        }
-                    }
-                    else
-                    {
-                        message = "Falsch Eingabe ";
-
-                    }
-                }
-                else
-                {
-                    message = "Falsch Eingabe ";
-                }
-            }
-         
-            ViewBag.Message = message;
-            return View();
-        }
-        //LOgout
-
-        [Authorize]
-        public ActionResult Logout()
-        {
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Login", "Users");
-        }
+       
         [NonAction]
         public bool IsEmailExist(string email)
         {

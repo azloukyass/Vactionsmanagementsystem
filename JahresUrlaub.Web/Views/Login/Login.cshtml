@@ -1,5 +1,6 @@
 ﻿@model JahresUrlaub.Web.Models.Users
 
+
 @{
     ViewBag.Title = "Login";
 }
@@ -67,12 +68,14 @@
 
                 <p>@Html.ValidationMessageFor(model => model.Password)</p>
             </div>
+
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
                 <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
 
             </div>
             @Html.ActionLink("Passord Vergessen", "ForgotPassword", "Login")
+
 
         }
     </div>

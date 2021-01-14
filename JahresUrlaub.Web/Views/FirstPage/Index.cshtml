@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "FirstPage";
 }
-<body>
+
     <style>
         .vl {
             border-left: 6px solid green;
@@ -83,15 +83,10 @@
             margin-left:20px;
         }
     </style>
-    <script type="text/javascript">
-        function AlertMsg() {
-            var message = "Simple MessageBox";
-            var title = "Title";
-            window.prompt(message, title);
-        }
-
-    </script>
+  
+    
     <body>
+        
         <img src="~/Images/bussiness-man.png" width="80" height="50" id="bild" />
         <a id="out" href="@Url.Action( "Index", "Home")" class="btn btn-info">LogOut</a>
         <span id="all">

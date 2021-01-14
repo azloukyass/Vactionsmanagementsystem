@@ -22,6 +22,6 @@ namespace JahresUrlaub.Web.Models
         public string Password { get; set; }
         public bool IsEmailVerified { get; set; }
         public System.Guid ActivationCode { get; set; }
-        public string LoginErrorMessage { get; set; }
+        public string ResetPasswordCode { get; set; }
     }
 }
