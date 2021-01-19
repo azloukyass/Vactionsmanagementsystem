@@ -15,17 +15,17 @@ namespace JahresUrlaub.Web.Models
     }
     public class UserMetdata
     {
-        [Display(Name ="First Name")]
+        [Display(Name ="Vorname")]
         [Required(AllowEmptyStrings =false , ErrorMessage ="Vorname ist Erfolgreich")]
         public string Firtsname { get; set; }
-        [Display(Name = "First Name")]
+        [Display(Name = "Nachname")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Nachname ist Erfolgreich")]
         public string Lastname { get; set; }
         [Display(Name ="Email")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email ist Erfolgreich")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        [Display(Name = "Date of Brith")]
+        [Display(Name = "Geburtstag")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Geburtsdatum ist Erfolgreich")]
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString ="{0:MM/dd/yyyy}")]

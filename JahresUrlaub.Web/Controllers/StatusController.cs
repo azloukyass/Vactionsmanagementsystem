@@ -12,13 +12,10 @@ namespace JahresUrlaub.Web.Controllers
     {
         // GET: Status
         JahreUrlaubDBEntitiess _db;
-        // GET: UrlaubAdmin
         public StatusController()
         {
             _db = new JahreUrlaubDBEntitiess();
         }
-
-       
         public ActionResult Index()
         {
             var list = _db.Events.ToList();

@@ -10,13 +10,9 @@ namespace JahresUrlaub.Web.Controllers
     public class HomeController : Controller
     {
        // GET:HOME
-   
         public ActionResult Index()
         {
-    
            return View();
         }
-
     }
-        
 }

@@ -23,7 +23,6 @@ namespace JahresUrlaub.Web.Controllers
         {
             return View(); 
         }
-
         // Registration POST Action 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -128,8 +127,6 @@ namespace JahresUrlaub.Web.Controllers
                 IsBodyHtml = true
             })
                 smtp.Send(message);
-             
         }
     }
-    
 }

@@ -41,6 +41,21 @@
     .allbutton {
         padding-left: 50px;
     }
+
+    #pass {
+        margin-right: 27px;
+    }
+
+    #vergessen {
+        margin-top: 10px;
+        margin-left: 30px;
+        color: blanchedalmond;
+    }
+    h1 {
+        color: white;
+        font-weight: bold;
+        font-size: medium;
+    }
 </style>
 <body>
     <div class="all">
@@ -61,7 +76,7 @@
                 <div class="i">
                     <i class="fas fa-lock"></i>
                 </div>
-                <div>
+                <div id="pass">
                     <label>Password</label>
                     @Html.EditorFor(model => model.Password)
                 </div>
@@ -74,8 +89,9 @@
                 <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
 
             </div>
-            @Html.ActionLink("Passord Vergessen", "ForgotPassword", "Login")
-
+            <div id="vergessen">
+               <h1> @Html.ActionLink("Password vergessen", "ForgotPassword", "Login")</h1>
+            </div>
 
         }
     </div>

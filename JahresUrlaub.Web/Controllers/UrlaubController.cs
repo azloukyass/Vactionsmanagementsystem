@@ -31,7 +31,7 @@ namespace JahresUrlaub.Web.Controllers
             return View();
         }
 
-      
+  
         public JsonResult GetEvents()
         {
             using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())

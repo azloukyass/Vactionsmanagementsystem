@@ -19,7 +19,6 @@ namespace UserReg.Controllers
             return View();
         }
         //Login POST
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Users Login)
@@ -27,11 +26,9 @@ namespace UserReg.Controllers
             string message = "";
             using (UserEntities db = new UserEntities())
             {
-
                 var v = db.Users.Where(a => a.Email == Login.Email && a.Password==Login.Password).FirstOrDefault();
                 if (v != null)
-                {
-                 
+                {    
                   return View("~/Views/FirstPage/Index.cshtml", Login);
                 }
                 else
@@ -57,23 +54,18 @@ namespace UserReg.Controllers
         {
             return View(); 
         }
-
-
         [NonAction]
         public void SendVerificationLinkEmail(string email, string activiationCode)
         {
             var verifyUrl = "/Login/ResetPassword/" + activiationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
-
             var fromEmail = new MailAddress("azlouknour@gmail.com", "Urlaubsverwaltung");
             var toEmail = new MailAddress(email);
             var fromEmailPassword = "98438145A"; // Replace with actual password
             string subject = "Rest Password ";
-
             string body = "<br/><br/>Link für ändern Ihr Password" +
                 " Klicken einach auf den Link Danke " +
                 " <br/><br/><a href="+link+" >Rest Password Link </a> ";
-
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -83,7 +75,6 @@ namespace UserReg.Controllers
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
             };
-
             using (var message = new MailMessage(fromEmail, toEmail)
             {
                 Subject = subject,
@@ -119,10 +110,8 @@ namespace UserReg.Controllers
                     message = "Konto wurde nicht gefunden !"; 
                 }
             }
-
             return View();
         }
-
         public ActionResult ResetPassword(string id)
         {
             //überprüfen die link von Reset Password 
@@ -149,7 +138,6 @@ namespace UserReg.Controllers
             var message = "";
             if(ModelState.IsValid)
             {
-
                 using(UserEntities dc = new UserEntities())
                 {
                     var user = dc.Users.Where(a => a.ResetPasswordCode == model.ResetCode).FirstOrDefault();

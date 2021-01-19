@@ -24,7 +24,6 @@ namespace JahresUrlaub.Web.Controllers
         {
             return View();
         }
-
         // Registration POST Action 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -64,14 +63,14 @@ namespace JahresUrlaub.Web.Controllers
                     //send Email to user 
                     SendVerificationLinkEmail(users.Email, users.ActivationCode.ToString());
                     message = "Registration erfolgreich Konto Aktiviation Link" +
-                        " Email wurd an Ihre Email breits gesendet" + users.Email;
+                        " Email wurd an Ihre Email breits gesendet  " + users.Email;
                     Status = true;
                 }
                 #endregion
             }
             else
             {
-                message = "Invalid Request";
+                message = "Fehermeldung";
             }
             // Email is Bereits RAUS 
 
@@ -88,8 +87,7 @@ namespace JahresUrlaub.Web.Controllers
         //Verif Account
         [HttpGet]
         public ActionResult VerifyAccount(string id)
-        {
-            
+        {   
             bool Status = false;
             using(UserEntities db = new UserEntities())
             {
@@ -103,16 +101,13 @@ namespace JahresUrlaub.Web.Controllers
                 }
                 else
                 {
-                    ViewBag.Message = "Invalid Request";
+                    ViewBag.Message = "Fehlermeldung";
                 }
             }
             ViewBag.Status = Status;
             return View();
         }
-
         // Verfiy Email LINK
-
-       
         [NonAction]
         public bool IsEmailExist(string email)
         {
@@ -127,16 +122,13 @@ namespace JahresUrlaub.Web.Controllers
         {
             var verifyUrl = "/Registieren/VerifyAccount/" + activiationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
-
             var fromEmail = new MailAddress("azlouknour@gmail.com", "Urlaubsverwaltung");
             var toEmail = new MailAddress(email);
             var fromEmailPassword = "98438145A"; // Replace with actual password
             string subject = "Your account is successfully created!";
-
-            string body = "<br/><br/>We are excited to tell you that your Dotnet Awesome account is" +
-                " successfully created. Please click on the below link to verify your account" +
+            string body = "<br/><br/>Wir freuen uns, Ihnen mitteilen zu können, dass Ihr Urlaubsverwaltung-Konto erfolgreich erstellt wurde." +
+                " Bitte klicken Sie auf den folgenden Link, um Ihr Konto zu bestätigen" +
                 " <br/><br/><a href='" + link + "'>" + link + "</a> ";
-
             var smtp = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -146,7 +138,6 @@ namespace JahresUrlaub.Web.Controllers
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
             };
-
             using (var message = new MailMessage(fromEmail, toEmail)
             {
                 Subject = subject,
@@ -155,7 +146,5 @@ namespace JahresUrlaub.Web.Controllers
             })
                 smtp.Send(message);
         }
-
     }
-
 }
