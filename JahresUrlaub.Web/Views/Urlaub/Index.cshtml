@@ -1,7 +1,9 @@
-﻿
+﻿@*  Kalendar Index wo alle Urlaubsanträge sichtbar für alle sind*@
+
 @{
     ViewBag.Title = "Antrag";
 }
+@* CSS Code *@
 <style>
     #bild {
         margin-left: 200px;
@@ -11,6 +13,7 @@
         color: burlywood;
     }
 </style>
+@* HTML Elements *@
 <h2>Urlaub-Antrag</h2>
 <img src="~/Images/calendar-interface-symbol-tool.png" id="bild" width="50" height="50" />
 <div id="calender"></div>
@@ -86,6 +89,7 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+@* Script mit AJAX Framework *@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
@@ -178,7 +182,7 @@
             }
 
             $('#btnEdit').click(function () {
-                //Open modal dialog for edit event
+                //Öffne den modalen Dialog zum Bearbeiten die Urlaubs 
                 openAddEditForm();
             })
             $('#btnDelete').click(function () {
@@ -189,7 +193,7 @@
                         data: { 'eventID': selectedEvent.eventID },
                         success: function (data) {
                             if (data.status) {
-                                //Refresh the calender
+                                //Refresh von Kalendar
                                 FetchEventAndRenderCalendar();
                                 $('#myModal').modal('hide');
                             }
@@ -254,7 +258,7 @@
 
                 }
                 SaveEvent(data);
-                // call function for submit data to the server
+                // Aufruffunktion zum Senden von Daten an den Server
             })
 
             function SaveEvent(data) {
@@ -264,7 +268,7 @@
                     data: data,
                     success: function (data) {
                         if (data.status) {
-                            //Refresh the calender
+                            //Refresh der Kalendar 
                             FetchEventAndRenderCalendar();
                             $('#myModalSave').modal('hide');
                         }

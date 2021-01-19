@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+@* Layout für alle Pages , enthält nur die Header und Footer *@
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -38,6 +40,7 @@
             </div>
         </div>
     </div>
+    @* Hier wird die Body element mit RenderBody für jeden andere Views aufgeruft *@
     <div class="container body-content">
         @RenderBody()
       

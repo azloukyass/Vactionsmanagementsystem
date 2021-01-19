@@ -9,6 +9,9 @@ using System.Web.Mvc;
 
 namespace AdminPlatfform.Web.Controllers
 {
+    /// <summary>
+    /// Controller indem wirde die Geschäftslogik der Bearbeitung einen Antrag implementiert 
+    /// </summary>
     public class UrlaubAdminController : Controller
     {
         AdminEntities _db; 
@@ -17,7 +20,11 @@ namespace AdminPlatfform.Web.Controllers
         {
             _db = new AdminEntities(); 
         }
-
+        /// <summary>
+        /// Suche Option in Index List bei Admin , um nach bestimmt Antrag zu suchen
+        /// </summary>
+        /// <param name="searchString"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult> Index(String searchString)
         {
@@ -29,16 +36,27 @@ namespace AdminPlatfform.Web.Controllers
             }
             return View(await modelquery.AsNoTracking().ToListAsync());
         }
+        /// <summary>
+        /// Einfach Action gibt List als View zurück
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var list= _db.Events.ToList();
             return View(list);
         }
+        /// <summary>
+        /// Edit der Anträge  
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Edit()
         {
             return View();
         }
-
+        /// <summary>
+        /// Methode gibt alle Urlaubs (Events) als JSON zurück
+        /// </summary>
+        /// <returns></returns>
         public JsonResult GetEvents()
         {
             using (AdminEntities dc = new AdminEntities())
@@ -47,6 +65,13 @@ namespace AdminPlatfform.Web.Controllers
                 return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
+
+        /// <summary>
+        /// POST Methode um die Urlaub abzuspeichern 
+        /// Urlaub wird als Event abgelegt 
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         [HttpPost]
         public JsonResult SaveEvent(Events e)
         {
@@ -55,7 +80,7 @@ namespace AdminPlatfform.Web.Controllers
             {
                 if (e.EventID > 0)
                 {
-                    ///Update the event
+                    ///Update Urlaub
                     var v = dc.Events.Where(a => a.EventID == e.EventID).FirstOrDefault();
                     if (v != null)
                     {
@@ -63,7 +88,6 @@ namespace AdminPlatfform.Web.Controllers
                         v.Start = e.Start;
                         v.End = e.End;
                         v.Description = e.Description;
-                      
                         v.ThemeColor = e.ThemeColor;
                     }
                 }
@@ -79,17 +103,17 @@ namespace AdminPlatfform.Web.Controllers
             return new JsonResult { Data = new { status = status } };
         }
 
-        /// <summary>Deletes the event.</summary>
-        /// <param name="EventID">The event identifier.</param>
+        /// <summary>Löschen der Urlaub </summary>
+        /// <param name="EventID">Primary Key jeder Urlaub .</param>
         /// <returns></returns>
         [HttpPost]
         public JsonResult DeleteEvent(int EventID)
         {
             /// <summary>
-            /// Implements the DeleteEvent method.
+            /// Implementierung der DeleteEvent Methode
             /// </summary>
-            /// <returns>Memeful Comments</returns>
-            /// <image url="https://media.giphy.com/media/Ca7gy6EZqdH32/giphy.gif" scale="0.3" />
+            /// <returns></returns>
+            
 
             var status = false;
             using (AdminEntities dc = new AdminEntities())

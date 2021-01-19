@@ -6,6 +6,9 @@ using System.Web;
 
 namespace JahresUrlaub.Web.Models
 {
+    /// <summary>
+    /// Class nur für Login von Mitarbeiter 
+    /// </summary>
     public class UserLogin
     {
         [Display(Name = "Email")]
@@ -13,11 +16,13 @@ namespace JahresUrlaub.Web.Models
         [Required(AllowEmptyStrings =false ,ErrorMessage ="Email ist Erfolgreich")]
         public string Email { get; set; }
 
+
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password ist Erfolgreich")]
         public string Password { get; set; }
         [Display(Name ="Remember Me")]
+        
         public bool RememberMe { get; set; }
 
     }

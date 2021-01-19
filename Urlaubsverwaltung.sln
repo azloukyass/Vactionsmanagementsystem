@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Urlaubsverwaltung.Test", "U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Web", "..\..\..\Downloads\SignalR-Chat-master\SignalR-Chat-master\Chat.Web\Chat.Web.csproj", "{55A39ED1-FBDC-4E1E-AA01-1CFA70A31A87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Desktop", "..\..\..\Downloads\SignalR-Chat-master\SignalR-Chat-master\Chat.Desktop\Chat.Desktop.csproj", "{1864E877-109A-4A85-9061-7BA76677FA71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Domain", "..\..\..\Downloads\SignalR-Chat-master\SignalR-Chat-master\Chat.Desktop\Chat.Domain.csproj", "{1864E877-109A-4A85-9061-7BA76677FA71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Urlaubsverwaltung.Test
 {
+    /// <summary>
+    /// UnitTest um die Benutzer Models zu testen 
+    /// </summary>
     [TestClass]
     public class BenutzerClassTest
     {

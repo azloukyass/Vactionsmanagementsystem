@@ -202,7 +202,6 @@
     <Compile Include="Controllers\AdminEngController.cs" />
     <Compile Include="Controllers\FirstLayoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\UrlaubAdminController.cs" />
     <Compile Include="Models\Events.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
@@ -210,27 +209,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="IService\INotiService.cs" />
-    <Compile Include="Notification.cs">
-      <DependentUpon>NotificationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NotificationModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NotificationModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NotificationModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NotificationModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NotificationModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>NotificationModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\NotiService.cs" />
     <Compile Include="Models\Urlaub.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
@@ -277,16 +256,6 @@
     <Content Include="images\registrieren.png" />
     <Content Include="images\schedule.png" />
     <Content Include="images\unauthorized-person.png" />
-    <Content Include="NotificationModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NotificationModel.edmx</DependentUpon>
-      <LastGenOutput>NotificationModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="NotificationModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>NotificationModel.edmx</DependentUpon>
-      <LastGenOutput>NotificationModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\AllModuls.edmx">
@@ -295,13 +264,6 @@
     </EntityDeploy>
     <Content Include="Models\AllModuls.edmx.diagram">
       <DependentUpon>AllModuls.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="NotificationModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>NotificationModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="NotificationModel.edmx.diagram">
-      <DependentUpon>NotificationModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -332,7 +294,6 @@
     <Content Include="Views\FirstLayout\Index.cshtml" />
     <Content Include="Views\UrlaubAdmin\Index.cshtml" />
     <Content Include="Views\UrlaubAdmin\Edit.cshtml" />
-    <Content Include="Views\Notification\AllNotification.cshtml" />
     <Content Include="Views\AdminEng\AddOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>

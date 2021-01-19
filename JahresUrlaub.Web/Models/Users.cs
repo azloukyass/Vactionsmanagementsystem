@@ -11,7 +11,9 @@ namespace JahresUrlaub.Web.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    /// <summary>
+    /// Models von Users bzw Mitarbeiter 
+    /// </summary>
     public partial class Users
     {
         public int user_id { get; set; }

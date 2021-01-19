@@ -7,6 +7,9 @@ using UserReg.Controllers;
 
 namespace Urlaubsverwaltung.Test
 {
+    /// <summary>
+    /// UnitTest für Login-Geschäftslogik 
+    /// </summary>
     [TestClass]
     public class LoginControllerTest
     {

@@ -11,14 +11,24 @@ namespace AdminPlatfform.Web.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    /// <summary>
+    /// Tabelle der Urlaub 
+    /// Urlaub wird als Events in Database abgelegt 
+    /// </summary>
     public partial class Events
     {
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public int EventID { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Subject { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public Nullable<System.DateTime> Start { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public string ThemeColor { get; set; }
+        [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         public Nullable<System.DateTime> End { get; set; }
     }
 }

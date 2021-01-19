@@ -1,4 +1,5 @@
-﻿@model AdminPlatfform.Web.Models.Events
+﻿@* Hier wurde die Urlaubs von dem Geschäftsführer bearbeiten  *@
+@model AdminPlatfform.Web.Models.Events
 
 @{
     ViewBag.Title = "AntwortAntragView";
@@ -8,6 +9,7 @@
         margin-left: 200px;
     }
 </style>
+@* Kalendar Model mit Bootstrap-Bibliothek aufbauen *@
 <h2>Antrag Antwort</h2>
 <img src="~/Images/calendar-interface-symbol-tool.png" id="bild" width="50" height="50" />
 <div id="calender"></div>
@@ -94,6 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    @* Ajax mit JavaScript Code , wurde die Schnittstelle von Controller UrlaubAdmin aufgruft *@
     <script>
         $(document).ready(function () {
             var events = [];

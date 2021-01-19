@@ -1,4 +1,5 @@
 ﻿
+@* Bearbeitet die Urlaub von Mitarbeiter *@
 @{
     ViewBag.Title = "AntragBearbeiten";
 }
@@ -6,17 +7,14 @@
     #bild {
         margin-left: 200px;
     }
-
     label {
         color: burlywood;
     }
 </style>
+@* Code CSS *@
 <h2>Urlaub-Antrag-Bearbeiten</h2>
 <img src="~/Images/calendar-interface-symbol-tool.png" id="bild" width="50" height="50" />
 <div id="calender"></div>
-
-
-
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -38,7 +36,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <div id="myModalSave" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -96,10 +93,10 @@
 
 
 <a href="@Url.Action("Index", "FirstPage")" class="btn btn-info">Zurück</a>
-
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+@* Script Code *@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
@@ -134,7 +131,6 @@
                     }
                 })
             }
-
             function GenerateCalender(events) {
                 $('#calender').fullCalendar('destroy');
                 $('#calender').fullCalendar({
@@ -193,7 +189,7 @@
             }
 
             $('#btnEdit').click(function () {
-                //Open modal dialog for edit event
+                //Öffnen den modalen Dialog zum Bearbeiten der Urlaub 
                 openAddEditForm();
             })
             $('#btnDelete').click(function () {
@@ -204,7 +200,7 @@
                         data: { 'eventID': selectedEvent.eventID },
                         success: function (data) {
                             if (data.status) {
-                                //Refresh the calender
+                                //Refrech von Kalendar 
                                 FetchEventAndRenderCalendar();
                                 $('#myModal').modal('hide');
                             }
@@ -277,7 +273,7 @@
                     IsFullDay: $('#chkIsFullDay').is(':checked')
                 }
                 SaveEvent(data);
-                // call function for submit data to the server
+                // Aufruffunktion zum Senden von Daten an den Server
             })
 
             function SaveEvent(data) {
@@ -287,7 +283,7 @@
                     data: data,
                     success: function (data) {
                         if (data.status) {
-                            //Refresh the calender
+                            //Refresh Kalendar 
                             FetchEventAndRenderCalendar();
                             $('#myModalSave').modal('hide');
                         }

@@ -1,25 +1,25 @@
-﻿@model IEnumerable<AdminPlatfform.Web.Models.Events>
+﻿
+@* Hier wurde alle Anträge für Geschäftsführer angezeigt *@
+@model IEnumerable<AdminPlatfform.Web.Models.Events>
 
 @{
     ViewBag.Title = "Überblick";
 }
 
 <h2>Alle Einträge</h2>
-
+@* CSS Code *@
 <style>
     html, body {
         height: 100%;
     }
-
- 
     th {
         color:gray;
     }
     th:hover{
         color:black;
     }
-   
 </style>
+@* Form Methode um der Geschäftsführer nach bestimmt Antrag zu suchen *@
 <form method="get" asp-action="Index">
     <p>
         <input type="search" placeholder="Suchen..." value="@ViewData["Getdetais"]" name="searchString" style="width:500px;" />
@@ -28,6 +28,7 @@
     </p>
 
 </form>
+@* Hier die List wo alle Daten von Urlaub der Mitarbeitern wie Start-EndDatum gezeigt *@
 <table class="table">
     <tr>
 

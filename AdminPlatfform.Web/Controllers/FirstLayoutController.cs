@@ -6,6 +6,9 @@ using System.Web.Mvc;
 
 namespace AdminPlatfform.Web.Controllers
 {
+    /// <summary>
+    /// Controller für Erste Page nach einloggen . hat nur eine einfach Action 
+    /// </summary>
     public class FirstLayoutController : Controller
     {
         // GET: FirstLayout

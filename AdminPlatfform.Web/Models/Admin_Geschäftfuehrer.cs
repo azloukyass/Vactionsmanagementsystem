@@ -12,7 +12,10 @@ namespace AdminPlatfform.Web.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    /// <summary>
+    /// Tabelle des Geschäftsführers -- Models 
+    /// Alle Eigenschaft sind hier 
+    /// </summary>
     public partial class Admin_Geschäftfuehrer
     {
         public int Admin_id { get; set; }

@@ -1,9 +1,9 @@
-﻿
+﻿@* FirstPage nach einloggen von Mitarbeiter *@
 <html>
 @{
     ViewBag.Title = "FirstPage";
 }
-
+@* CSS Code  *@
     <style>
         .vl {
             border-left: 6px solid green;
@@ -84,7 +84,7 @@
         }
     </style>
   
-    
+    @* HTML Komponenten wie Input und Label *@
     <body>
         
         <img src="~/Images/bussiness-man.png" width="80" height="50" id="bild" />
@@ -115,7 +115,7 @@
         </span>
     </body>
 </html>
-<!-- Modal -->
+<!-- Kalendar Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -132,9 +132,9 @@
                     <p>
                         <input type="search" placeholder="Suchen..." value="@ViewData["Getdetais"]" name="searchString" style="width:500px;" />
                         <input type="submit" value="Search" class="btn btn-primary" />
-                    
+
                     </p>
-                    
+                    <!-- Ajax -- Schnittstelle mit Controller -->
                     <script>
                         $(document).ready(function () {
                             var events = [];

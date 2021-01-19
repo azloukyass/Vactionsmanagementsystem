@@ -7,14 +7,19 @@ using System.Web.Mvc;
 
 namespace AdminPlatfform.Web.Controllers
 {
+    /// <summary>
+    /// Controller für Registrieren einem Admin 
+    /// </summary>
     public class AdminEngController : Controller
     {
         // GET: AdminEng
+        // Database 
         AdminEntities _db;
         public AdminEngController()
         {
             _db = new AdminEntities();
         }
+        // Action gibt eine List zurück 
         public ActionResult List()
         {
             var test = _db.Benutzer.ToList();
@@ -31,6 +36,8 @@ namespace AdminPlatfform.Web.Controllers
             Admin_Geschäftfuehrer userModel = new Admin_Geschäftfuehrer();
             return View(userModel);
         }
+        // POST Methode indem wurde die Geschäftslogik einer neue Registrieren implementiert 
+        // Database wurde abgeruft 
         [HttpPost]
         public ActionResult AddOrEdit(Admin_Geschäftfuehrer userModel)
         {

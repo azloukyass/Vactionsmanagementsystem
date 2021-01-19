@@ -6,12 +6,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JahresUrlaub.Web.Models
 {
-
+    /// <summary>
+    /// Models Benutzer mit ConfirmPassword 
+    /// ConfirmPassword ist nicht vorhanden in Tabelle User auf Datenbank 
+    /// </summary>
     [MetadataType(typeof(UserMetdata))]
     public  partial class Users
     {
         public string ConfirmPassword { get; set; }
-
     }
     public class UserMetdata
     {

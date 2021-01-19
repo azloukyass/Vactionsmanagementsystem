@@ -410,7 +410,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalendarModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\FirstPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -442,7 +441,6 @@
     <Compile Include="Models\Crypto.cs" />
     <Compile Include="Models\Extended\Users.cs" />
     <Compile Include="Models\ResetPassword.cs" />
-    <Compile Include="Models\Urlaub.cs" />
     <Compile Include="Models\User.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
