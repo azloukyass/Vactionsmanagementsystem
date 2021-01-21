@@ -124,7 +124,7 @@ namespace JahresUrlaub.Web.Controllers
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
             var fromEmail = new MailAddress("azlouknour@gmail.com", "Urlaubsverwaltung");
             var toEmail = new MailAddress(email);
-            var fromEmailPassword = "98438145A"; // Replace with actual password
+            var fromEmailPassword = "********"; 
             string subject = "Your account is successfully created!";
             string body = "<br/><br/>Wir freuen uns, Ihnen mitteilen zu können, dass Ihr Urlaubsverwaltung-Konto erfolgreich erstellt wurde." +
                 " Bitte klicken Sie auf den folgenden Link, um Ihr Konto zu bestätigen" +

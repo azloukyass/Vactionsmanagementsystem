@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JahresUrlaub.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -10,19 +11,21 @@ namespace JahresUrlaub.Web.Controllers
 {
     public class FirstPageController : Controller
     {
-        JahreUrlaubDBEntitiess _db; 
+        EventsEntities _db; 
         public FirstPageController()
         {
-            _db = new JahreUrlaubDBEntitiess(); 
+            _db = new EventsEntities(); 
         }
+     
         // GET: FirstPage
         public ActionResult Index()
         {
+            
             return View(); 
         }
         public JsonResult GetEvents()
         {
-            using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
+            using (EventsEntities dc = new EventsEntities())
             {
 
                 var events = dc.Events.ToList();

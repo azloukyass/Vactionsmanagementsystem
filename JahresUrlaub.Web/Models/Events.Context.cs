@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JahresUrlaub.Web
+namespace JahresUrlaub.Web.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class JahreUrlaubDBEntitiess : DbContext
+    public partial class EventsEntities : DbContext
     {
-        public JahreUrlaubDBEntitiess()
-            : base("name=JahreUrlaubDBEntitiess")
+        public EventsEntities()
+            : base("name=EventsEntities")
         {
         }
     

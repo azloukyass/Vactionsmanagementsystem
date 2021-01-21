@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Status";
+}
+
+<style>
+    #all {
+        position: fixed;
+        width: 500px;
+        height: 200px;
+        top: 50%;
+        left: 50%;
+        margin-top: -100px; /* Negative half of height. */
+        margin-left: -250px; /* Negative half of width. */
+    }
+    h2{
+        color:coral;
+        font-weight:bold;
+    }
+    html, body {
+        height: 100%;
+    }
+
+    body, html {
+        /* The image used */
+        background-image: url('../../Images/photo-1611149043085-c4d0a79304c6.jpg');
+        /* Full height */
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<body>
+    <div id="all">
+        <h2>Status nachschauen</h2>
+
+        <h1>Geben Sie Ihre Vorname und Personalnummer bitte ein!</h1>
+
+        <form>
+            <input id="Text1" type="text" />
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="showPop">sehen</button>
+            <a href="@Url.Action("Index", "FirstPage")" class="btn btn-success btn-lg">Zurück</a>
+    </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog   modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Urlaub-Status</h4>
+                        </div>
+                        <div class="modal-body ">
+                            <div id="popup">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+   
+</body>
+@section Scripts{
+    <script>
+            $('#showPop').click(function () {
+                var url = '@Url.Action("List", "Status")';
+                $.ajax({
+                    url: url,
+                    type: 'post',
+                    data: { "para": $("#Text1").val()},
+                    success: function (data) {
+                        $('#popup').html(data);
+                    }
+                });
+            })
+
+$('#submitModal').click(function () {
+            var url = '@Url.Action("GetData", "Default")';
+            $.ajax({
+                url: url,
+                type: 'post',
+                data: { "data": $("input[name='data']").val() },
+                success: function () {
+                    $("#Text1").val("");
+                    alert("pass successfully!");
+
+                }
+            });
+        });
+    </script>
+}

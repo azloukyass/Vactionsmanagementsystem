@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JahresUrlaub.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,15 +12,42 @@ namespace JahresUrlaub.Web.Controllers
     public class StatusController : Controller
     {
         // GET: Status
-        JahreUrlaubDBEntitiess _db;
+
+        EventsEntities _db;
         public StatusController()
         {
-            _db = new JahreUrlaubDBEntitiess();
+            _db = new EventsEntities();
         }
-        public ActionResult Index()
+        // GET:Status 
+        [HttpGet]
+        public async Task<ActionResult> Index(String searchString)
         {
-            var list = _db.Events.ToList();
-            return View(list);
+            ViewData["Getdetails"] = searchString;
+            var modelquery = from x in _db.Events select x;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                modelquery = modelquery.Where(x => x.Subject.Contains(searchString));
+            }
+            return View(await modelquery.AsNoTracking().ToListAsync());
+        }
+        /// <summary>
+        /// Einfach Action gibt List als View zurück
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult List(string para)
+        {
+
+            var test = _db.Events.Where(x => x.Subject == para).ToList();
+            if (test != null)
+            {
+                return View("Index",test);
+            }
+            return View("Index");
+        }
+        // GET: Status 
+        public ActionResult Status()
+        {
+            return View();
         }
     }
 }

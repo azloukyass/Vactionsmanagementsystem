@@ -28,7 +28,9 @@ namespace UserReg.Controllers
             {
                 var v = db.Users.Where(a => a.Email == Login.Email && a.Password==Login.Password).FirstOrDefault();
                 if (v != null)
-                {    
+                {
+                  Session["UserID"] = v.user_id;
+                  Session["Lastname"] = v.Lastname.ToString(); 
                   return View("~/Views/FirstPage/Index.cshtml", Login);
                 }
                 else
@@ -38,15 +40,14 @@ namespace UserReg.Controllers
                 }
             }      
         }
+        
         //LOgout
-
-        [Authorize]
         [HttpPost]
+        [Authorize]
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
-          
-         return RedirectToAction("Index", "Home");
+            Session.RemoveAll();
+            return RedirectToAction("Index", "Home");
         }
 
         // Part3- Forgot Password 

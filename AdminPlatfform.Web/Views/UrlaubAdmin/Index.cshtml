@@ -1,5 +1,4 @@
-﻿
-@* Hier wurde alle Anträge für Geschäftsführer angezeigt *@
+﻿@* Hier wurde alle Anträge für Geschäftsführer angezeigt *@
 @model IEnumerable<AdminPlatfform.Web.Models.Events>
 
 @{
@@ -12,68 +11,75 @@
     html, body {
         height: 100%;
     }
+
     th {
-        color:gray;
+        color: gray;
     }
-    th:hover{
-        color:black;
-    }
+
+        th:hover {
+            color: black;
+        }
 </style>
 @* Form Methode um der Geschäftsführer nach bestimmt Antrag zu suchen *@
-<form method="get" asp-action="Index">
-    <p>
-        <input type="search" placeholder="Suchen..." value="@ViewData["Getdetais"]" name="searchString" style="width:500px;" />
-        <input type="submit" value="Search" class="btn btn-primary" />
-        <a href="~/UrlaubAdmin/Index">Get All Info </a>
-    </p>
+@if (Session["UserID"] != null)
+{
 
-</form>
-@* Hier die List wo alle Daten von Urlaub der Mitarbeitern wie Start-EndDatum gezeigt *@
-<table class="table">
-    <tr>
 
-        <th>
-            Vorname und Personalnummer
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Start)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.End)
-        </th>
-        <th>
-            Status
-        </th>
+    <form method="get" asp-action="Index">
+        <p>
+            <input type="search" placeholder="Suchen..." value="@ViewData["Getdetais"]" name="searchString" style="width:500px;" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a href="~/UrlaubAdmin/Index">Get All Info </a>
+        </p>
 
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+    </form>
+    @* Hier die List wo alle Daten von Urlaub der Mitarbeitern wie Start-EndDatum gezeigt *@
+    <table class="table">
         <tr>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Subject)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.End)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ThemeColor)
-            </td>
+            <th>
+                Vorname und Personalnummer
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End)
+            </th>
+            <th>
+                Status
+            </th>
 
-
+            <th></th>
         </tr>
-    }
 
-</table>
-<a href="@Url.Action("Index", "FirstLayout")" class="btn btn-info">Zurück</a>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThemeColor)
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+    <a href="@Url.Action("Index", "FirstLayout")" class="btn btn-info">Zurück</a>
+}

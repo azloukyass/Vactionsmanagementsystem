@@ -395,21 +395,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="CalendarModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CalendarModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CalendarModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CalendarModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CalendarModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CalendarModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\FirstPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -417,9 +402,6 @@
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\TestLoginController.cs" />
     <Compile Include="Controllers\UrlaubController.cs" />
-    <Compile Include="Events.cs">
-      <DependentUpon>CalendarModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -439,6 +421,24 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Crypto.cs" />
+    <Compile Include="Models\Events.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events.cs">
+      <DependentUpon>Events.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Events1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Events.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Extended\Users.cs" />
     <Compile Include="Models\ResetPassword.cs" />
     <Compile Include="Models\User.Context.cs">
@@ -466,16 +466,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CalendarModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CalendarModel.edmx</DependentUpon>
-      <LastGenOutput>CalendarModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="CalendarModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CalendarModel.edmx</DependentUpon>
-      <LastGenOutput>CalendarModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -501,6 +491,8 @@
     <Content Include="Images\patrick-amoy-OSiLnlAcwYg-unsplash.jpg" />
     <Content Include="Images\pexels-jess-bailey-designs-1558691.jpg" />
     <Content Include="Images\pexels-rachel-claire-4577587.jpg" />
+    <Content Include="Images\photo-1611149043085-c4d0a79304c6.jpg" />
+    <Content Include="Images\profile.png" />
     <Content Include="Images\registrieren.png" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -511,6 +503,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Events.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Events.edmx</DependentUpon>
+      <LastGenOutput>Events.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Events.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Events.edmx</DependentUpon>
+      <LastGenOutput>Events1.cs</LastGenOutput>
     </Content>
     <Content Include="Models\User.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -531,19 +533,19 @@
     <Content Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="CalendarModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CalendarModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="CalendarModel.edmx.diagram">
-      <DependentUpon>CalendarModel.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\User.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>User.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\User.edmx.diagram">
       <DependentUpon>User.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Events.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Events.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Events.edmx.diagram">
+      <DependentUpon>Events.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -571,13 +573,15 @@
     <Content Include="Views\Urlaub\Index.cshtml" />
     <Content Include="Views\Urlaub\Edit.cshtml" />
     <Content Include="Views\FirstPage\Index.cshtml" />
-    <Content Include="Views\Status\Index.cshtml" />
     <Content Include="Views\Registieren\Add.cshtml" />
     <Content Include="Views\Registieren\VerifyAccount.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\ForgotPassword.cshtml" />
     <Content Include="Views\Login\ResetPassword.cshtml" />
+    <Content Include="Views\Status\Status.cshtml" />
+    <Content Include="Views\Status\Index.cshtml" />
+    <Content Include="Views\Status\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

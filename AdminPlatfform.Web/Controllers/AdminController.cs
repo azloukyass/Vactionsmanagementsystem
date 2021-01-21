@@ -38,7 +38,8 @@ namespace UserReg.Controllers
                     return View("Index", AdminModel);
                 }
                 else
-                    return View("~/Views/FirstLayout/Index.cshtml", AdminModel);
+                  Session["UserID"] = userDetails.Admin_id;
+                return View("~/Views/FirstLayout/Index.cshtml", AdminModel);
             }
         }
     }

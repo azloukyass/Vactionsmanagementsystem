@@ -1,9 +1,11 @@
 ﻿@* FirstPage nach einloggen von Mitarbeiter *@
-<html>
-@{
-    ViewBag.Title = "FirstPage";
-}
-@* CSS Code  *@
+
+
+    <html>
+    @{
+        ViewBag.Title = "FirstPage";
+    }
+    @* CSS Code  *@
     <style>
         .vl {
             border-left: 6px solid green;
@@ -14,6 +16,7 @@
         #bild {
             margin-right: 100px;
             margin-top: 70px;
+            margin-bottom:-30px;
         }
 
         .allbutton {
@@ -79,42 +82,62 @@
             margin-left: 1000px;
             margin-top: -145px;
         }
-        #btt4{
-            margin-left:20px;
+        #btt4 {
+            margin-left: 20px;
+        }
+        h5{
+            padding-top:-50px;
+            padding-left:20px;
+            color:black;
+            font-weight:bold;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
     </style>
-  
     @* HTML Komponenten wie Input und Label *@
     <body>
-        
-        <img src="~/Images/bussiness-man.png" width="80" height="50" id="bild" />
-        <a id="out" href="@Url.Action( "Index", "Home")" class="btn btn-info">LogOut</a>
-        <span id="all">
-            <div id="GruppElement">
-                <img src="~/Images/add.png" id="addbild1" width="100" height="100" />
-                <br />
-                <a href="@Url.Action("Index", "Urlaub")" class="btn btn-success">Urlaub-beantragen</a>
-            </div>
-            <div id="GruppElement1">
-                <img src="~/Images/folder.png" id="addbild1" width="100" height="100" />
-                <br />
-                <a href="@Url.Action("Index" ,"Status")" class="btn btn-success">Urlaub-Status</a>
-            </div>
-            <div id="GruppElement2">
-                <img src="~/Images/paket.png" id="addbild1" width="100" height="100" />
-                <br />
-                <a href="@Url.Action("Edit", "Urlaub")" class="btn btn-success">Urlaub-bearbeiten</a>
-            </div>
-            <div id="GruppElement3">
-                <img src="~/Images/notification.png" id="addbild1" width="100" height="100" />
-                <br />
-                <a href="https://localhost:44354/" class="btn btn-success"id="btt4" >Notifikation</a>
-            </div>
+
+        <img src="~/Images/profile.png" width="80" height="50" id="bild" />
 
 
-        </span>
+        @using (Html.BeginForm("Logout", "Login", FormMethod.Post))
+        {
+
+            <input id="out" type="submit" value="Logout" class="btn btn-default" />
+        }
+        @if (Session["UserID"] != null)
+        {
+
+
+            <h5> Herzlich Willkomen @Session["Lastname"].ToString()</h5>
+            <span id="all">
+                <div id="GruppElement">
+                    <img src="~/Images/add.png" id="addbild1" width="100" height="100" />
+
+                    <br />
+                    <a href="@Url.Action("Index", "Urlaub")" class="btn btn-success">Urlaub-beantragen</a>
+                </div>
+                <div id="GruppElement1">
+                    <img src="~/Images/folder.png" id="addbild1" width="100" height="100" />
+                    <br />
+                    <a href="@Url.Action("Status", "Status")" class="btn btn-success">Urlaub-Status</a>
+                </div>
+                <div id="GruppElement2">
+                    <img src="~/Images/paket.png" id="addbild1" width="100" height="100" />
+                    <br />
+                    <a href="@Url.Action("Edit", "Urlaub")" class="btn btn-success">Urlaub-bearbeiten</a>
+                </div>
+                <div id="GruppElement3">
+                    <img src="~/Images/notification.png" id="addbild1" width="100" height="100" />
+                    <br />
+                    <a href="https://localhost:44354/" class="btn btn-success" id="btt4">Notifikation</a>
+                </div>
+
+
+            </span>
+        }
     </body>
 </html>
+
 <!-- Kalendar Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -175,3 +198,4 @@
         </div>
     </div>
 </div>
+        

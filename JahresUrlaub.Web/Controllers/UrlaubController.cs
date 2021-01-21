@@ -1,4 +1,5 @@
 ﻿
+using JahresUrlaub.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace JahresUrlaub.Web.Controllers
   
         public JsonResult GetEvents()
         {
-            using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
+            using (EventsEntities dc = new EventsEntities())
             {
                 
                         var events = dc.Events.ToList();
@@ -47,7 +48,7 @@ namespace JahresUrlaub.Web.Controllers
         public JsonResult SaveEvent(Events e)
         {
             var status = false;
-            using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
+            using (EventsEntities dc = new EventsEntities())
             {
                 if (e.EventID > 0)
                 {
@@ -86,7 +87,7 @@ namespace JahresUrlaub.Web.Controllers
             /// <image url="https://media.giphy.com/media/Ca7gy6EZqdH32/giphy.gif" scale="0.3" />
 
             var status = false;
-            using (JahreUrlaubDBEntitiess dc = new JahreUrlaubDBEntitiess())
+            using (EventsEntities dc = new EventsEntities())
             {
                 var v = dc.Events.Where(a => a.EventID == EventID).FirstOrDefault();
                 if (v != null)
