@@ -37,7 +37,7 @@
                
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li>Frau/Herr - @User.Identity.Name</li>
+                            
                            <li>@Html.ActionLink("Log Out", "Logout", "Login")</li>
                         }     
                 </ul>

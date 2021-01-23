@@ -39,7 +39,10 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
+    #error {
+        color: red;
+        font-weight: bold;
+    }
     .allbutton {
         padding-left: 50px;
     }
@@ -64,7 +67,7 @@
         <h2>Login</h2>
 
 
-        @using (Html.BeginForm("Login","Login" ,FormMethod.Post))
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
 
@@ -85,15 +88,16 @@
 
                 <p>@Html.ValidationMessageFor(model => model.Password)</p>
             </div>
-       
+
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
                 <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
                 <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
             </div>
             <div id="vergessen">
-                <h1>@Html.ActionLink("Password vergessen","ForgotPassword" ,"Login")</h1>
+                <h1>@Html.ActionLink("Password vergessen", "ForgotPassword", "Login")</h1>
             </div>
+            <label id="error">@ViewBag.Error</label>
 
         }
     </div>

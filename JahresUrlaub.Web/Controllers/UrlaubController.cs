@@ -12,15 +12,12 @@ namespace JahresUrlaub.Web.Controllers
     {
         // GET: Home
         /// <summary>
-        ///   <para>GET : Home DataEvent for Calendar</para>
+        ///   <para>GET : Home DataEvent für Kalender</para>
         ///   <para>return View(); </para>
         /// </summary>
-        
 
-        
         public UrlaubController()
         {
-       
         }
         public ActionResult Index()
         {
@@ -31,16 +28,12 @@ namespace JahresUrlaub.Web.Controllers
         {
             return View();
         }
-
-  
         public JsonResult GetEvents()
         {
             using (EventsEntities dc = new EventsEntities())
-            {
-                
+            {   
                         var events = dc.Events.ToList();
-                        return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                  
+                        return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };          
              }
            
         }

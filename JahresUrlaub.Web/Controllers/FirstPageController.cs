@@ -9,6 +9,9 @@ using System.Web.Mvc;
 
 namespace JahresUrlaub.Web.Controllers
 {
+    /// <summary>
+    /// First Page nach Login 
+    /// </summary>
     public class FirstPageController : Controller
     {
         EventsEntities _db; 

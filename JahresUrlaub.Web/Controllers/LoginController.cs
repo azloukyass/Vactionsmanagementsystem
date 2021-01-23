@@ -11,6 +11,9 @@ using System.Web.Security;
 
 namespace UserReg.Controllers
 {
+    /// <summary>
+    /// Login Geschäftslogik für Mitarbeiter 
+    /// </summary>
     public class LoginController : Controller
     {
         //Login 
@@ -27,18 +30,19 @@ namespace UserReg.Controllers
             string message = "";
             using (UserEntities db = new UserEntities())
             {
-                var v = db.Users.Where(a => a.Email == Login.Email && a.Password==Login.Password).FirstOrDefault();
-                if (v != null)
+                var v = db.Users.Where(a => a.Email == Login.Email).FirstOrDefault();
+                if ((v != null) && (string.Compare(Crypto.Hash(v.Password), v.Password) != 0))
                 {
-                  Session["UserID"] = v.user_id;
-                  Session["Lastname"] = v.Lastname.ToString(); 
-                  return View("~/Views/FirstPage/Index.cshtml", Login);
+                        Session["UserID"] = v.user_id;
+                        Session["Lastname"] = v.Lastname.ToString();
+                        return View("~/Views/FirstPage/Index.cshtml", Login);    
                 }
                 else
                 {
-                   // v.LoginErrorMessage = "Überprüfen Sie mal Ihre Daten nach !";
+                    ViewBag.Error = "Überprüfen Sie bitte Ihre Eingabe bitte nach ";
                     return View("Login", Login);
                 }
+                
             }      
         }
         
@@ -47,7 +51,8 @@ namespace UserReg.Controllers
         [Authorize]
         public ActionResult Logout()
         {
-            Session.RemoveAll();
+            FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("Index", "Home");
         }
 

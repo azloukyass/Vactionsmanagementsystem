@@ -11,6 +11,9 @@ using System.Web.Security;
 
 namespace JahresUrlaub.Web.Controllers
 {
+    /// <summary>
+    /// Registrieren Logik für neue Mitarbeiter 
+    /// </summary>
     public class RegistierenController : Controller
     {
         UserEntities _db;
@@ -49,8 +52,8 @@ namespace JahresUrlaub.Web.Controllers
                 #endregion
 
                 #region Password Hashing 
-                //users.Password = Crypto.Hash(users.Password);
-                //users.ConfirmPassword = Crypto.Hash(users.ConfirmPassword); // 
+                users.Password = Crypto.Hash(users.Password);
+                users.ConfirmPassword = Crypto.Hash(users.ConfirmPassword); 
                 #endregion
                 users.IsEmailVerified = false;
                 #region Save to Database 

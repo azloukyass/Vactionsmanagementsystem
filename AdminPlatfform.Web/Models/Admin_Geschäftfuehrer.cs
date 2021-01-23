@@ -27,6 +27,7 @@ namespace AdminPlatfform.Web.Models
         public string Username { get; set; }
         [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "Mindesten 6 Zeichen bitte in password")]
         public string Password { get; set; }
         public string LoginErrorMessage { get; set; }
     }

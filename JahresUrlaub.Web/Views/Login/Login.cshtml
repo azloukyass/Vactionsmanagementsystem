@@ -1,11 +1,11 @@
-﻿
-@* Login View von Mitarbeiter Anwendung *@
+﻿@* Home Page View der Anwendung *@
 @model JahresUrlaub.Web.Models.Users
+
 
 @{
     ViewBag.Title = "Login";
 }
-@* CSS Code *@
+@* CSS Code  *@
 <style>
     h2 {
         color: white;
@@ -40,6 +40,11 @@
         background-size: cover;
     }
 
+    #error {
+        color: red;
+        font-weight: bold;
+    }
+
     .allbutton {
         padding-left: 50px;
     }
@@ -53,13 +58,14 @@
         margin-left: 30px;
         color: blanchedalmond;
     }
+
     h1 {
         color: white;
         font-weight: bold;
         font-size: medium;
     }
 </style>
-@* HTML Komponenten *@
+@* HTML-Elements  *@
 <body>
     <div class="all">
         <h2>Login</h2>
@@ -91,11 +97,11 @@
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
                 <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
                 <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
-
             </div>
             <div id="vergessen">
-               <h1> @Html.ActionLink("Password vergessen", "ForgotPassword", "Login")</h1>
+                <h1>@Html.ActionLink("Password vergessen", "ForgotPassword", "Login")</h1>
             </div>
+            <label id="error">@ViewBag.Error</label>
 
         }
     </div>
