@@ -89,7 +89,7 @@
             <div class="allbutton">
                 <input type="submit" id="button" class="btn" name="name" value="Login" />
                 <a href="@Url.Action("Add", "Registieren")" class="btn btn-primary">Registieren</a>
-
+                <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
             </div>
             <div id="vergessen">
                 <h1>@Html.ActionLink("Password vergessen","ForgotPassword" ,"Login")</h1>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace JahresUrlaub.Domain.Repositories
 {
     /// <summary>
-	/// Vacation repository interface.
+	/// Urlaub repository interface.
 	/// </summary>
     public interface IUrlaubRepository
     {

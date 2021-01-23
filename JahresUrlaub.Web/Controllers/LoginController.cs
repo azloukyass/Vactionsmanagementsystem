@@ -8,6 +8,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+
 namespace UserReg.Controllers
 {
     public class LoginController : Controller
@@ -35,7 +36,7 @@ namespace UserReg.Controllers
                 }
                 else
                 {
-                    message = "Falsch Eingabe ";
+                   // v.LoginErrorMessage = "Überprüfen Sie mal Ihre Daten nach !";
                     return View("Login", Login);
                 }
             }      

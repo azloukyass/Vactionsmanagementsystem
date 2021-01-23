@@ -40,7 +40,7 @@ namespace JahresUrlaub.Web.Models
         [DataType(DataType.Password)]
         [Compare("Password" , ErrorMessage ="Confirm password muss abstimmen")]
         public string ConfirmPassword { get; set; }
-
+        public string LoginErrorMessage { get; set; }
 
 
 

@@ -1,6 +1,21 @@
 ﻿@* Hier wurde alle Anträge für Geschäftsführer angezeigt *@
 @model IEnumerable<JahresUrlaub.Web.Models.Events>
 
+<style>
+    #Bea{
+        background-color:blue;
+        color:white;
+    }
+
+    #Gen{
+        background-color:green;
+        color:white;
+    }
+    #Ab{
+        background-color:red;
+        color:white;
+    }
+</style>
 
     @* Hier die List wo alle Daten von Urlaub der Mitarbeitern wie Start-EndDatum gezeigt *@
     <table class="table-condensed">
@@ -23,21 +38,37 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Subject)
-                </td>
-            
-                <td>
-                    @Html.DisplayFor(modelItem => item.Start)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.End)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ThemeColor)
-                </td>
-            </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End)
+        </td>
+        @if (item.ThemeColor.ToString() == "Blue")
+        {
+            <td id="Bea">
+                Noch in Bearbeitung
+            </td>
+        }
+        @if (item.ThemeColor.ToString() == "Green")
+        {
+            <td id="Gen">
+                Genehmigt
+            </td>
+         }
+        @if (item.ThemeColor.ToString() == "red")
+        {
+            <td id="Ab">
+              Leider ist Abgelegt
+             </td>
+        }
+
+    </tr>
         }
 
     </table>

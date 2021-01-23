@@ -7,15 +7,15 @@ namespace JahresUrlaub.Domain.Model
     public enum UrlaubStatus
     {
 		/// <summary>
-		/// Submitted vacation status.
+		/// Noch in Bearbeitung 
 		/// </summary>
 		Eingereicht,
 		/// <summary>
-		/// Approved vacation status.
+		/// Zusage.
 		/// </summary>
 		Genehmigt,
 		/// <summary>
-		/// Rejected vacation status
+		/// Absage
 		/// </summary>
 		Abgelehnt,
 	}
