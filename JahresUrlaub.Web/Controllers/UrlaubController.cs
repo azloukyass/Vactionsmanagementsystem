@@ -1,8 +1,11 @@
 ﻿
 using JahresUrlaub.Web.Models;
+using Limilabs.Client.SMTP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -28,17 +31,17 @@ namespace JahresUrlaub.Web.Controllers
         {
             return View();
         }
-        public JsonResult GetEvents()
+        public JsonResult GetUrlaubs()
         {
             using (EventsEntities dc = new EventsEntities())
             {   
-                        var events = dc.Events.ToList();
-                        return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };          
+                        var urlaubs = dc.Events.ToList();
+                        return new JsonResult { Data = urlaubs, JsonRequestBehavior = JsonRequestBehavior.AllowGet };          
              }
            
         }
         [HttpPost]
-        public JsonResult SaveEvent(Events e)
+        public JsonResult SaveUrlaub(Events e)
         {
             var status = false;
             using (EventsEntities dc = new EventsEntities())
@@ -63,15 +66,47 @@ namespace JahresUrlaub.Web.Controllers
                 }
 
                 dc.SaveChanges();
+                SendVerificationLinkEmail();
+
                 status = true;
             }
             return new JsonResult { Data = new { status = status } };
+        }
+        [NonAction]
+        public void SendVerificationLinkEmail()
+        {
+            string email = "azlouknourddin@gmail.com"; // Email_Chef
+            
+            var fromEmail = new MailAddress("azlouknour@gmail.com", "Urlaubsverwaltung");
+            var toEmail = new MailAddress(email);
+            var fromEmailPassword = "98438145A";
+            string subject = "Neuer Antrag ist eingegangen!";
+            string body = "<br/><br/> In Ihrem Urlaubsverwaltungskonto ist ein neuer Urlaubsantrag Ihres Mitarbeiters eingegangen." +
+                "<br/><br/>"+
+                "Mit freundlichen Grüßen";
+                
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+            };
+            using (var message = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                smtp.Send(message);
         }
         /// <summary>Deletes the event.</summary>
         /// <param name="EventID">The event identifier.</param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult DeleteEvent(int EventID)
+        public JsonResult DeleteUrlaub(int EventID)
         {
             /// <summary>
             /// Implements the DeleteEvent method.

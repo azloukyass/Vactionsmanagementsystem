@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Mail, Version=3.0.21008.1129, Culture=neutral, PublicKeyToken=6dc438ab78a525b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mail.dll.3.0.21008.1129\lib\net45\Mail.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Antiforgery, Version=2.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Antiforgery.2.0.3\lib\netstandard2.0\Microsoft.AspNetCore.Antiforgery.dll</HintPath>
     </Reference>
@@ -400,7 +403,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegistierenController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
-    <Compile Include="Controllers\TestLoginController.cs" />
     <Compile Include="Controllers\UrlaubController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -581,11 +583,9 @@
     <Content Include="Views\Login\ResetPassword.cshtml" />
     <Content Include="Views\Status\Status.cshtml" />
     <Content Include="Views\Status\Index.cshtml" />
-    <Content Include="Views\Status\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\TestLogin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

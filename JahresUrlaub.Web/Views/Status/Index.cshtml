@@ -33,6 +33,9 @@
             <th>
                 Status
             </th>
+            <th>
+                Commentar von Chef
+            </th>
             <th></th>
         </tr>
 
@@ -67,7 +70,9 @@
               Leider ist Abgelegt
              </td>
         }
-
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
     </tr>
         }
 

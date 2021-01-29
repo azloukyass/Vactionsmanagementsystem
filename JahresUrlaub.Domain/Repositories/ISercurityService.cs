@@ -11,7 +11,6 @@ namespace Urlaubsverwaltung.Domain.Repositories
     interface ISercurityService
     {
         public string Encrypt(string data);
-        public string Decrypt(string data);
         public string ComputeHash(string data);
     }
 }

@@ -22,13 +22,21 @@
         padding-left: 350px;
     }
     .form-group{
-        color:white;
+        color:black;
+        font-weight:bold;
+    }
+    h2 {
+        color:burlywood;
+        font-weight:bold;
     }
     #success{
         background-color:green;
         color:white;
         margin-bottom:30px;
         margin-left:250px;
+    }
+    #allbutton{
+        margin-left:30px;
     }
 </style>
 @* HTML Element *@
@@ -76,6 +84,13 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div  id="allbutton" class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" class="btn btn-default" />
             <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Zurück</a>

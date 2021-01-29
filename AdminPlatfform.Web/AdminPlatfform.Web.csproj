@@ -194,20 +194,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Models\Benutzer.cs">
-      <DependentUpon>AllModuls.tt</DependentUpon>
-    </Compile>
     <Compile Include="Common\Global.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminEngController.cs" />
     <Compile Include="Controllers\FirstLayoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UrlaubAdminController.cs" />
+    <Compile Include="Models\Benutzer.cs">
+      <DependentUpon>AllModuls.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Events.cs">
       <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>AllModuls.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Urlaub.cs">

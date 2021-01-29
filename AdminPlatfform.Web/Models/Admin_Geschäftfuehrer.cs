@@ -27,8 +27,13 @@ namespace AdminPlatfform.Web.Models
         public string Username { get; set; }
         [Required(ErrorMessage = "Das Feld ist Erfolgreich")]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "Mindesten 6 Zeichen bitte in password")]
+        [RegularExpression(@".*([@$!%*#?&]{2,})", ErrorMessage = "Bitte Mindest Zwei ziffer")]
+        [MinLength(8, ErrorMessage = "Mindesten 8 Zeichen bitte in password")]
         public string Password { get; set; }
+        [Display(Name ="Confrim Password")]
+        [DataType(DataType.Password)]
+        [Compare("Password" , ErrorMessage ="Confirm password muss abstimmen")]
+        public string ConfirmPassword { get; set; }
         public string LoginErrorMessage { get; set; }
     }
 }

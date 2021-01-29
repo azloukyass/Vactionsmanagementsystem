@@ -29,5 +29,6 @@ namespace AdminPlatfform.Web.Models
         public virtual DbSet<Benutzer> Benutzer { get; set; }
         public virtual DbSet<Events> Events { get; set; }
         public virtual DbSet<Urlaub> Urlaub { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

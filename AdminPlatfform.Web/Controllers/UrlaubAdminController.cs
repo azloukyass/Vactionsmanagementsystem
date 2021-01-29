@@ -57,12 +57,12 @@ namespace AdminPlatfform.Web.Controllers
         /// Methode gibt alle Urlaubs (Events) als JSON zurück
         /// </summary>
         /// <returns></returns>
-        public JsonResult GetEvents()
+        public JsonResult GetUrlaubs()
         {
             using (AdminEntities dc = new AdminEntities())
             {
-                var events = dc.Events.ToList();
-                return new JsonResult { Data = events, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                var Urlaubs = dc.Events.ToList();
+                return new JsonResult { Data = Urlaubs, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
         }
 
@@ -73,7 +73,7 @@ namespace AdminPlatfform.Web.Controllers
         /// <param name="e"></param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult SaveEvent(Events e)
+        public JsonResult SaveUrlaub(Events e)
         {
             var status = false;
             using (AdminEntities dc = new AdminEntities())
@@ -107,7 +107,7 @@ namespace AdminPlatfform.Web.Controllers
         /// <param name="EventID">Primary Key jeder Urlaub .</param>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult DeleteEvent(int EventID)
+        public JsonResult DeleteUrlaub(int EventID)
         {
             /// <summary>
             /// Implementierung der DeleteEvent Methode

@@ -12,13 +12,16 @@ namespace AdminPlatfform.Web.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Events
+    public partial class Users
     {
-        public int EventID { get; set; }
-        public string Subject { get; set; }
-        public string Description { get; set; }
-        public Nullable<System.DateTime> Start { get; set; }
-        public string ThemeColor { get; set; }
-        public Nullable<System.DateTime> End { get; set; }
+        public int user_id { get; set; }
+        public string Firtsname { get; set; }
+        public string Lastname { get; set; }
+        public string Email { get; set; }
+        public string DateOfBirth { get; set; }
+        public string Password { get; set; }
+        public bool IsEmailVerified { get; set; }
+        public System.Guid ActivationCode { get; set; }
+        public string ResetPasswordCode { get; set; }
     }
 }

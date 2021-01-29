@@ -110,7 +110,7 @@
                     events = [];
                     $.ajax({
                         type: "GET",
-                        url: "/UrlaubAdmin/GetEvents",
+                        url: "/UrlaubAdmin/GetUrlaubs",
                         success: function (data) {
                             $.each(data, function (i, v) {
                                 events.push({
@@ -123,7 +123,6 @@
                                     allDay: v.IsFullDay
                                 });
                             })
-
                             GenerateCalender(events);
                         },
                         error: function (error) {
@@ -131,7 +130,6 @@
                         }
                     })
                 }
-
                 function GenerateCalender(events) {
                     $('#calender').fullCalendar('destroy');
                     $('#calender').fullCalendar({
@@ -156,7 +154,6 @@
                             }
                             $description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
                             $('#myModal #pDetails').empty().html($description);
-
                             $('#myModal').modal();
                         },
                         selectable: true,
@@ -184,11 +181,10 @@
                                 ThemeColor: event.color,
                                 IsFullDay: event.allDay
                             };
-                            SaveEvent(data);
+                            SaveUrlaub(data);
                         }
                     })
                 }
-
                 $('#btnEdit').click(function () {
                     //Open modal dialog for edit event
                     openAddEditForm();
@@ -197,7 +193,7 @@
                     if (selectedEvent != null && confirm('Are you sure?')) {
                         $.ajax({
                             type: "POST",
-                            url: '/UrlaubAdmin/DeleteEvent',
+                            url: '/UrlaubAdmin/DeleteUrlaub',
                             data: { 'eventID': selectedEvent.eventID },
                             success: function (data) {
                                 if (data.status) {
@@ -212,11 +208,9 @@
                         })
                     }
                 })
-
                 $('#dtp1,#dtp2').datetimepicker({
                     format: 'DD/MM/YYYY HH:mm A'
                 });
-
                 $('#chkIsFullDay').change(function () {
                     if ($(this).is(':checked')) {
                         $('#divEndDate').hide();
@@ -225,7 +219,6 @@
                         $('#divEndDate').show();
                     }
                 });
-
                 function openAddEditForm() {
                     if (selectedEvent != null) {
                         $('#hdEventID').val(selectedEvent.eventID);
@@ -240,7 +233,6 @@
                     $('#myModal').modal('hide');
                     $('#myModalSave').modal();
                 }
-
                 $('#btnSave').click(function () {
                     //Validation/
                     if ($('#txtSubject').val().trim() == "") {
@@ -263,7 +255,6 @@
                             return;
                         }
                     }
-
                     var data = {
                         EventID: $('#hdEventID').val(),
                         Subject: $('#txtSubject').val().trim(),
@@ -276,11 +267,10 @@
                     SaveEvent(data);
                     events.SaveEvent();
                 })
-
                 function SaveEvent(data) {
                     $.ajax({
                         type: "POST",
-                        url: '/UrlaubAdmin/SaveEvent',
+                        url: '/UrlaubAdmin/SaveUrlaub',
                         data: data,
                         success: function (data) {
                             if (data.status) {

@@ -106,7 +106,7 @@
                     events = [];
                     $.ajax({
                         type: "GET",
-                        url: "/Urlaub/GetEvents",
+                        url: "/Urlaub/GetUrlaubs",
                         success: function (data) {
                             $.each(data, function (i, v) {
                                 events.push({
@@ -179,7 +179,7 @@
                                 ThemeColor: event.color,
 
                             };
-                            SaveEvent(data);
+                            SaveUrlaub(data);
                         }
                     })
                 }
@@ -192,7 +192,7 @@
                     if (selectedEvent != null && confirm('Are you sure?')) {
                         $.ajax({
                             type: "POST",
-                            url: '/Urlaub/DeleteEvent',
+                            url: '/Urlaub/DeleteUrlaub',
                             data: { 'eventID': selectedEvent.eventID },
                             success: function (data) {
                                 if (data.status) {
@@ -260,14 +260,14 @@
                         ThemeColor: $('#ddThemeColor').val(),
 
                     }
-                    SaveEvent(data);
+                    SaveUrlaub(data);
                     // Aufruffunktion zum Senden von Daten an den Server
                 })
 
-                function SaveEvent(data) {
+                function SaveUrlaub(data) {
                     $.ajax({
                         type: "POST",
-                        url: '/Urlaub/SaveEvent',
+                        url: '/Urlaub/SaveUrlaub',
                         data: data,
                         success: function (data) {
                             if (data.status) {

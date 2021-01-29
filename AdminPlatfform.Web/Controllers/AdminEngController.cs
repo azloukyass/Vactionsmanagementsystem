@@ -19,12 +19,7 @@ namespace AdminPlatfform.Web.Controllers
         {
             _db = new AdminEntities();
         }
-        // Action gibt eine List zurück 
-        public ActionResult List()
-        {
-            var test = _db.Benutzer.ToList();
-            return View(test);
-        }
+       
         // GET: AdminEng
         public ActionResult Index()
         {
