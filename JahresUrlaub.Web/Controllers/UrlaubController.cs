@@ -79,7 +79,7 @@ namespace JahresUrlaub.Web.Controllers
             
             var fromEmail = new MailAddress("azlouknour@gmail.com", "Urlaubsverwaltung");
             var toEmail = new MailAddress(email);
-            var fromEmailPassword = "98438145A";
+            var fromEmailPassword = "testpassword";
             string subject = "Neuer Antrag ist eingegangen!";
             string body = "<br/><br/> In Ihrem Urlaubsverwaltungskonto ist ein neuer Urlaubsantrag Ihres Mitarbeiters eingegangen." +
                 "<br/><br/>"+
